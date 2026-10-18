@@ -20,25 +20,41 @@ body { background: #fff; color: #333; }
 :where(a, button, [tabindex]):focus-visible { outline: 2px solid #525252; outline-offset: 4px; }
 
 /* Home topics are navigation rows, separate from article reading styles. */
+.home-body {
+  --color-text-heading: #262626;
+  --color-text-navigation: #525252;
+  --color-icon-brand: #333;        /* 原 Logo，保持不变 */
+  --color-icon-help: #5b7c95;       /* 灰蓝：帮助、引导 */
+  --color-icon-brewing: #5f8168;    /* 灰绿：开始冲煮 */
+  --color-icon-beans: #98735d;      /* 咖啡棕：咖啡豆 */
+  --color-icon-notes: #787774;      /* 暖灰：笔记、记录 */
+  --color-icon-data: #5b7c95;       /* 灰蓝：数据、云端 */
+  --color-icon-contribute: #5f8168; /* 灰绿：贡献、协作 */
+  line-height: 1.6;
+}
 .markdown-body .home-header h1,
 .markdown-body :is(.home-navigation, .home-contribute) h2 {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #525252;
-  font-weight: 400;
+  color: var(--color-text-heading);
+  font-weight: 500;
+  line-height: 1.4;
 }
-.home-heading-icon { flex-shrink: 0; color: #737373; }
-.home-brand-icon { transform: rotate(90deg); }
-.home-heading-icon-brewing { transform: translateX(1px); }
-.markdown-body .home-navigation { margin-top: 32px; }
-.markdown-body .home-header h1,
+.home-heading-icon { flex-shrink: 0; }
+.home-brand-icon { color: var(--color-icon-brand); transform: rotate(90deg); }
+.home-heading-icon-help { color: var(--color-icon-help); }
+.home-heading-icon-brewing { color: var(--color-icon-brewing); }
+.home-heading-icon-beans { color: var(--color-icon-beans); }
+.home-heading-icon-notes { color: var(--color-icon-notes); }
+.home-heading-icon-data { color: var(--color-icon-data); }
+.home-heading-icon-contribute { color: var(--color-icon-contribute); }
+.markdown-body .home-navigation { margin-top: 28px; }
+.markdown-body .home-header h1 { margin: 0 0 12px; }
 .markdown-body .home-navigation h2 {
-  margin: 32px 0 4px;
+  margin: 28px 0 6px;
 }
-.markdown-body .home-header h1:first-child,
 .markdown-body .home-navigation h2:first-child { margin-top: 0; }
-.markdown-body .home-header > p,
 .markdown-body .home-navigation ul {
   margin: 0 -12px;
   padding: 0;
@@ -47,19 +63,18 @@ body { background: #fff; color: #333; }
   margin-top: 0;
 }
 .markdown-body .home-navigation li::before { content: none; }
-.markdown-body .home-header > p,
 .markdown-body .home-navigation a {
   display: flex;
   align-items: center;
-  min-height: 40px;
+  min-height: 36px;
   padding: 6px 12px;
   border-radius: 6px;
-  color: #262626;
-  font-weight: 500;
+  color: var(--color-text-navigation);
+  font-weight: 400;
 }
 .markdown-body .home-header > p {
+  margin: 0;
   color: #525252;
-  font-weight: 400;
 }
 .markdown-body .home-navigation a {
   text-decoration: none;
@@ -75,7 +90,7 @@ body { background: #fff; color: #333; }
   outline-offset: -3px;
 }
 .markdown-body .home-contribute {
-  margin-top: 32px;
+  margin-top: 28px;
   margin-inline: -12px;
   padding: 16px 12px;
   border-radius: 12px;
