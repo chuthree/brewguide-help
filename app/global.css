@@ -63,7 +63,7 @@ body { background: #fff; color: #333; }
   margin-top: 0;
 }
 .markdown-body .home-navigation li::before { content: none; }
-.markdown-body .home-navigation a {
+.markdown-body .home-navigation .home-topic {
   display: flex;
   align-items: center;
   min-height: 36px;
@@ -71,6 +71,10 @@ body { background: #fff; color: #333; }
   border-radius: 6px;
   color: var(--color-text-navigation);
   font-weight: 400;
+}
+.markdown-body .home-navigation .home-topic-draft {
+  color: #c3c3c3;
+  cursor: not-allowed;
 }
 .markdown-body .home-header > p {
   margin: 0;
