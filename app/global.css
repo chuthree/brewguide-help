@@ -110,7 +110,9 @@ body { background: #fff; color: #333; }
 .help-search-bar:active { background-color: #d9d9d9; }
 /* The field is the top of the panel; results extend directly below it. */
 [role='dialog']:has(input[role='combobox']) {
-  --search-dialog-top: max(48px, env(safe-area-inset-top));
+  --animate-fd-dialog-in: fd-fade-in 0.3s ease;
+  --animate-fd-dialog-out: fd-fade-out 0.3s ease;
+  --search-dialog-top: 48px;
   top: var(--search-dialog-top);
   left: 0;
   right: var(--removed-body-scroll-bar-size, 0px);
@@ -130,11 +132,6 @@ body { background: #fff; color: #333; }
   color: #333;
   font-size: 0.9375rem;
   box-shadow: none;
-}
-@media (min-width: 768px) {
-  [role='dialog']:has(input[role='combobox']) {
-    --search-dialog-top: max(16px, calc(50dvh - 250px));
-  }
 }
 [role='dialog'] div:has(> input[role='combobox']) {
   flex-shrink: 0;
