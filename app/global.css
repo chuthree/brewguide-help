@@ -131,7 +131,7 @@ body { background: #fff; color: #333; }
 [role='dialog']:has(input[role='combobox']) {
   --animate-fd-dialog-in: fd-fade-in 0.3s ease;
   --animate-fd-dialog-out: fd-fade-out 0.3s ease;
-  --search-dialog-top: 48px;
+  --search-dialog-top: 24px;
   top: var(--search-dialog-top);
   left: 0;
   right: var(--removed-body-scroll-bar-size, 0px);

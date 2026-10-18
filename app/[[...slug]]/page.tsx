@@ -44,8 +44,8 @@ export default async function Page({ params }: Props) {
   const Content = page.data.body;
   const isHome = page.slugs.length === 0;
   return (
-    <main className="mx-auto w-full max-w-[560px] px-6 py-12 font-sans antialiased">
-      <nav aria-label="帮助导航" className={`${isHome ? 'mb-8' : 'mb-12'} flex items-center justify-between gap-4`}>
+    <main className="mx-auto w-full max-w-[560px] px-6 pt-6 pb-12 font-sans antialiased">
+      <nav aria-label="帮助导航" className={`${isHome ? 'mb-6' : 'mb-8'} flex items-center justify-between gap-4`}>
         {!isHome && (
           <Link href="/" className={iconButtonClass} aria-label="返回帮助首页">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
