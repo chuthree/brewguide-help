@@ -4,7 +4,7 @@ import { useEffect, useRef, useState, type ComponentProps } from 'react';
 import { AnimatePresence, LazyMotion, domAnimation, m, useReducedMotion } from 'framer-motion';
 import { copyText } from '@/lib/clipboard';
 
-export default function DocCodeBlock({ children, ...props }: ComponentProps<'pre'>) {
+export default function DocCodeBlock({ children, wrap = false, copyable = true, ...props }: ComponentProps<'pre'> & { wrap?: boolean; copyable?: boolean }) {
   const reduceMotion = useReducedMotion();
   const codeRef = useRef<HTMLPreElement>(null);
   const resetRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -30,10 +30,10 @@ export default function DocCodeBlock({ children, ...props }: ComponentProps<'pre
 
   return (
     <div className="doc-code-block">
-      <div className="doc-code-row">
+      <div className="doc-code-row" data-wrap={wrap || undefined}>
         <span className="doc-code-prompt" aria-hidden="true">$</span>
         <pre {...props} ref={codeRef} tabIndex={0}>{children}</pre>
-        <LazyMotion features={domAnimation}>
+        {copyable && <LazyMotion features={domAnimation}>
           <m.button type="button" className="doc-code-copy" onClick={handleCopy} aria-label={label} title={label}>
             <AnimatePresence mode="popLayout" initial={false}>
               <m.span
@@ -50,9 +50,9 @@ export default function DocCodeBlock({ children, ...props }: ComponentProps<'pre
               </m.span>
             </AnimatePresence>
           </m.button>
-        </LazyMotion>
+        </LazyMotion>}
       </div>
-      <span role="status" className={status === 'error' ? 'doc-code-error' : 'sr-only'}>{status === 'idle' ? '' : label}</span>
+      {copyable && <span role="status" className={status === 'error' ? 'doc-code-error' : 'sr-only'}>{status === 'idle' ? '' : label}</span>}
     </div>
   );
 }

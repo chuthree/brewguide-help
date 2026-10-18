@@ -199,6 +199,9 @@ importers:
       react-dom:
         specifier: 19.3.1
         version: 19.3.1(react@19.3.1)
+      react-icons:
+        specifier: 5.5.0
+        version: 5.5.0(react@19.3.1)
       react-medium-image-zoom:
         specifier: 5.4.9
         version: 5.4.9(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
@@ -2083,6 +2086,11 @@ packages:
     peerDependenciesMeta:
       react:
         optional: true
+
+  react-icons@5.5.0:
+    resolution: {integrity: sha512-MEFcXdkP3dLo8uumGI5xN3lDFNsRtrjbOEKDLD7yv76v4wpnEq2Lt2qeHaQOr34I/wPN3s3+N08WkQ+CW37Xiw==}
+    peerDependencies:
+      react: '*'
 
   react-medium-image-zoom@5.4.9:
     resolution: {integrity: sha512-czBdTbJI6JEbqeRIT5M8D3j7TrffBfo00U0P0lzzd19usj8PiR1yPH7PK/vQlwBE/Sv9YFdJGN6XauJPi4jRyg==}
@@ -4305,6 +4313,10 @@ snapshots:
       '@react-grab/cli': 0.2.0
       bippy: 0.6.1(react@19.3.1)
     optionalDependencies:
+      react: 19.3.1
+
+  react-icons@5.5.0(react@19.3.1):
+    dependencies:
       react: 19.3.1
 
   react-medium-image-zoom@5.4.9(react-dom@19.3.1(react@19.3.1))(react@19.3.1):

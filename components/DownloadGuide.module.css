@@ -1,0 +1,129 @@
+.guide {
+  position: relative;
+  --guide-padding: 8px;
+  --control-height: 40px;
+  --control-radius: calc(var(--media-frame-radius) - var(--guide-padding));
+  --guide-row-gap: 4px;
+  --guide-section-gap: 16px;
+  --guide-content-gap: 24px;
+  --guide-copy-gap: 8px;
+  padding: var(--guide-padding);
+}
+
+:global(.markdown-body) > .guide { margin-block-start: var(--guide-section-gap); }
+
+.viewport { height: 276px; }
+.screen { display: flex; flex-direction: column; min-width: 0; }
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  min-height: 36px;
+  padding-inline: 12px;
+}
+
+.screen:not([data-page-id='1']) .header { padding-inline-start: 44px; }
+
+.guide h2.heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  margin: 0;
+  color: #333;
+  font-size: inherit;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+.heading:focus { outline: none; }
+.heading svg { flex-shrink: 0; color: #737373; }
+.devices, .options { display: grid; gap: var(--guide-row-gap); }
+.devices, .content, .methodView { margin-top: var(--guide-content-gap); }
+.guide p.description { margin: var(--guide-copy-gap) 0 0; padding-inline: 12px; color: #737373; }
+
+.methodView { display: flex; flex-direction: column; gap: var(--guide-content-gap); min-width: 0; }
+.guide ol.steps {
+  margin: 0;
+  padding: 0 4px 0 24px;
+}
+.guide .steps > li + li { margin-top: 12px; }
+.steps p { margin: 0; }
+.operations { display: grid; flex-shrink: 0; gap: var(--guide-row-gap); }
+
+.guide .device,
+.back {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 0;
+  border-radius: var(--control-radius);
+  color: #525252;
+  font: inherit;
+  text-align: start;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 150ms ease-out, color 150ms ease-out, scale 150ms ease-out;
+}
+
+.guide .device {
+  --feedback-press-scale: 0.99;
+  justify-content: space-between;
+  width: 100%;
+  min-height: var(--control-height);
+  padding: 10px 12px;
+  line-height: 20px;
+  background: #f7f7f7;
+}
+
+.devices .device { justify-content: flex-start; }
+.device svg { flex-shrink: 0; color: #737373; }
+.chevron { margin-inline-start: auto; }
+.action { display: inline-flex; align-items: center; gap: 8px; flex-shrink: 0; font-size: 0.8125rem; }
+
+.back {
+  position: absolute;
+  inset-block-start: var(--guide-padding);
+  inset-inline-start: var(--guide-padding);
+  z-index: 1;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  background: #f7f7f7;
+}
+
+.guide > .back {
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity var(--page-fade-dur) var(--page-fade-ease),
+    background-color 150ms ease-out,
+    color 150ms ease-out,
+    scale 150ms ease-out;
+}
+
+.guide > .back[data-visible='true'] { opacity: 1; pointer-events: auto; }
+
+@media (prefers-reduced-motion: reduce) {
+  .guide > .back { transition: none; }
+}
+
+.device:focus-visible,
+.back:focus-visible { outline-offset: -3px; }
+
+@media (hover: hover) {
+  .guide .device:not(:disabled):hover,
+  .back:not(:disabled):hover { background-color: #eee; color: #262626; }
+}
+
+.guide .device:not(:disabled):active,
+.back:not(:disabled):active { background-color: #e5e5e5; color: #404040; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .guide .device:not(:disabled):active,
+  .back:not(:disabled):active { scale: var(--feedback-press-scale, 0.95); }
+}

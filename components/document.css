@@ -97,6 +97,14 @@
   text-overflow: ellipsis;
 }
 .markdown-body .doc-code-row pre code :is([data-line], .line) { display: inline; min-height: 0; }
+.markdown-body .doc-code-row[data-wrap] pre,
+.markdown-body .doc-code-row[data-wrap] pre code {
+  overflow: visible;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  text-overflow: clip;
+}
+.markdown-body .doc-code-row[data-wrap] pre code :is([data-line], .line) { display: block; }
 .doc-code-copy {
   position: relative;
   display: flex;
