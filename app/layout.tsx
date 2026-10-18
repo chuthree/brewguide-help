@@ -8,7 +8,6 @@ import './global.css';
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: { default: 'Brew Guide Help', template: '%s · Brew Guide Help' },
-  description: 'Brew Guide 使用教程与常见问题：冲煮、咖啡豆、笔记、数据与备份。',
   openGraph: { siteName: 'Brew Guide Help', locale: 'zh_CN', type: 'website' },
 };
 

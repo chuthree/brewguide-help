@@ -18,18 +18,23 @@ export function generateStaticParams() { return source.generateParams(); }
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const page = source.getPage((await params).slug);
   if (!page) notFound();
+  const description = page.slugs.length === 0
+    ? undefined
+    : page.data.description ?? `${page.data.title} — Brew Guide 使用教程`;
   return {
     title: page.slugs.length === 0 ? { absolute: page.data.title } : page.data.title,
-    description: page.data.description ?? `${page.data.title} — Brew Guide 使用教程`,
+    description,
     alternates: { canonical: page.url },
     openGraph: {
       title: page.data.title,
-      description: page.data.description ?? `${page.data.title} — Brew Guide 使用教程`,
+      description,
       url: page.url,
       siteName: 'Brew Guide Help',
       locale: 'zh_CN',
       type: 'website',
+      images: [{ url: '/icon.png', width: 512, height: 512, alt: 'Brew Guide Help' }],
     },
+    twitter: { card: 'summary' },
   };
 }
 export default async function Page({ params }: Props) {
