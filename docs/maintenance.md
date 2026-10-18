@@ -4,7 +4,7 @@
 
 ## 本地预览
 
-使用 Node.js 22 或更新的 LTS 版本，在项目根目录运行：
+使用 Node.js 22.23.3（版本见 `.nvmrc`），在项目根目录运行：
 
 ```sh
 corepack enable
