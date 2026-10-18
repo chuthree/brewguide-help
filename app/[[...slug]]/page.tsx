@@ -39,7 +39,7 @@ export default async function Page({ params }: Props) {
   const isHome = page.slugs.length === 0;
   return (
     <main className="mx-auto w-full max-w-[560px] px-6 py-12 font-sans antialiased">
-      <nav aria-label="帮助导航" className="mb-12 flex items-center justify-between gap-4">
+      <nav aria-label="帮助导航" className={`${isHome ? 'mb-8' : 'mb-12'} flex items-center justify-between gap-4`}>
         {!isHome && (
           <Link href="/" className={iconButtonClass} aria-label="返回帮助首页">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -55,11 +55,12 @@ export default async function Page({ params }: Props) {
           </div>
         )}
       </nav>
-      <header className="mb-6 text-sm leading-relaxed text-black">
-        <h1 className="font-normal">{page.data.title}</h1>
-        {page.data.date && <p className="mt-1 font-normal text-neutral-500 tabular-nums"><time dateTime={page.data.date}>{page.data.date}</time></p>}
-      </header>
-      <article className="markdown-body max-w-none">
+      {!isHome && <header className="mb-6 text-sm leading-relaxed text-black">
+        <h1 className="font-normal">
+          {page.data.title}
+        </h1>
+      </header>}
+      <article className={`markdown-body max-w-none${isHome ? ' home-body' : ''}`}>
           <Content components={{
             p: DocParagraph,
             img: DocImage,

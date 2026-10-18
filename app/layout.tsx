@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { RootProvider } from 'fumadocs-ui/provider/next';
 import { siteUrl } from '@/lib/site';
+import HelpSearchDialog from '@/components/HelpSearchDialog';
 import { translations } from '@/lib/translations';
 import './global.css';
 
@@ -18,7 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <RootProvider
           theme={{ forcedTheme: 'light', enableSystem: false, hotKey: false }}
           i18n={{ locale: 'zh', translations }}
-          search={{ options: { type: 'static', api: '/search.json' } }}
+          search={{ SearchDialog: HelpSearchDialog }}
         >
           {children}
         </RootProvider>

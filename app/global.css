@@ -18,41 +18,138 @@
 :root { color-scheme: light; }
 body { background: #fff; color: #333; }
 :where(a, button, [tabindex]):focus-visible { outline: 2px solid #525252; outline-offset: 4px; }
-/* One shared input-row size for the homepage and the search dialog. */
+
+/* Home topics are navigation rows, separate from article reading styles. */
+.markdown-body .home-header h1,
+.markdown-body :is(.home-navigation, .home-contribute) h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #525252;
+  font-weight: 400;
+}
+.home-heading-icon { flex-shrink: 0; color: #737373; }
+.home-brand-icon { transform: rotate(90deg); }
+.home-heading-icon-brewing { transform: translateX(1px); }
+.markdown-body .home-navigation { margin-top: 32px; }
+.markdown-body .home-header h1,
+.markdown-body .home-navigation h2 {
+  margin: 32px 0 4px;
+}
+.markdown-body .home-header h1:first-child,
+.markdown-body .home-navigation h2:first-child { margin-top: 0; }
+.markdown-body .home-header > p,
+.markdown-body .home-navigation ul {
+  margin: 0 -12px;
+  padding: 0;
+}
+.markdown-body .home-navigation li + li {
+  margin-top: 0;
+}
+.markdown-body .home-navigation li::before { content: none; }
+.markdown-body .home-header > p,
+.markdown-body .home-navigation a {
+  display: flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  color: #262626;
+  font-weight: 500;
+}
+.markdown-body .home-header > p {
+  color: #525252;
+  font-weight: 400;
+}
+.markdown-body .home-navigation a {
+  text-decoration: none;
+  transition: none;
+  -webkit-tap-highlight-color: transparent;
+}
+@media (hover: hover) {
+  .markdown-body .home-navigation a:hover { background: #f7f7f7; }
+}
+.markdown-body .home-navigation a:active { background: #e5e5e5; }
+.markdown-body .home-navigation a:focus-visible {
+  background: #f7f7f7;
+  outline-offset: -3px;
+}
+.markdown-body .home-contribute {
+  margin-top: 32px;
+  margin-inline: -12px;
+  padding: 16px 12px;
+  border-radius: 12px;
+  background: #f7f7f7;
+}
+.markdown-body .home-contribute h2 { margin: 0 0 12px; }
+.markdown-body .home-contribute p + p { margin-top: 12px; }
+
+/* The trigger and dialog input share the same search-field surface. */
 .help-search-bar,
 [role='dialog'] div:has(> input[role='combobox']) {
   display: flex;
   align-items: center;
   gap: 8px;
   height: 44px;
-  padding: 12px 16px;
+  padding: 6px 12px;
   border: 0;
+  border-radius: 12px;
   background-color: #f2f2f2;
   color: #525252;
   font-size: 0.9375rem;
   line-height: 20px;
 }
-.help-search-bar:hover { background-color: #e6e6e6; }
+.help-search-bar {
+  width: calc(100% + 24px);
+  margin-inline: -12px;
+  -webkit-tap-highlight-color: transparent;
+}
+@media (hover: hover) {
+  .help-search-bar:hover { background-color: #e6e6e6; }
+}
 .help-search-bar:active { background-color: #d9d9d9; }
-/* The header meets the dialog edge: no inset panel or extra background ring. */
+/* The field is the top of the panel; results extend directly below it. */
 [role='dialog']:has(input[role='combobox']) {
-  --search-dialog-top: 16px;
+  --search-dialog-top: max(48px, env(safe-area-inset-top));
   top: var(--search-dialog-top);
-  width: calc(100% - 48px);
-  max-width: 512px;
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 24px);
+  max-width: 536px;
+  padding: 0;
   max-height: calc(100dvh - var(--search-dialog-top) - 16px);
-  overflow-y: auto;
+  overflow: hidden;
+  overscroll-behavior: contain;
   border: 0;
   border-radius: 12px;
   background: #fff;
   color: #333;
   font-size: 0.9375rem;
-  box-shadow: var(--shadow-note-card);
+  box-shadow: none;
 }
 @media (min-width: 768px) {
   [role='dialog']:has(input[role='combobox']) {
     --search-dialog-top: max(16px, calc(50dvh - 250px));
   }
+}
+[role='dialog'] div:has(> input[role='combobox']) {
+  flex-shrink: 0;
+  border-radius: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* Keep the field visible while results scroll within the available viewport. */
+[role='dialog']:has(input[role='combobox']) > div[data-empty] {
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border: 0;
+}
+[role='dialog'] #fd-search-list {
+  max-height: min(460px, calc(100dvh - var(--search-dialog-top) - 108px));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 4px;
 }
 [role='dialog'] input[role='combobox'] {
   min-width: 0;
@@ -62,7 +159,8 @@ body { background: #fff; color: #333; }
   border-radius: 0;
   background: transparent;
   font: inherit;
-  color: #333;
+  letter-spacing: inherit;
+  color: inherit;
   box-shadow: none;
 }
 [role='dialog'] input[role='combobox']::placeholder { color: #525252; opacity: 1; }
@@ -72,33 +170,20 @@ body { background: #fff; color: #333; }
   height: 18px;
   flex-shrink: 0;
   color: inherit;
+  stroke-width: 2;
 }
-[role='dialog'] div:has(> input[role='combobox']) > button {
-  min-width: 28px;
-  height: 20px;
-  padding: 0 4px;
-  border: 0;
-  border-radius: 4px;
-  background: transparent;
-  color: #737373;
-  font-family: inherit;
-  font-size: 11px;
-  line-height: 20px;
-  box-shadow: none;
-}
-[role='dialog'] div:has(> input[role='combobox']) > button:hover { background: #e8e8e8; }
 [role='dialog']:has(input[role='combobox']) [role='option'] {
   font-size: 0.9375rem;
   line-height: 1.8;
   border-radius: 8px;
 }
 [role='dialog']:has(input[role='combobox']) [aria-selected='true'] { background: #f5f5f5; color: #333; }
-/* The search overlay must dim the page without blurring it. */
-[class*='backdrop-blur'] {
+/* Match the site's quiet surfaces and keep background text unblurred. */
+[class*='backdrop-blur']:has(+ [role='dialog'] input[role='combobox']) {
+  background: rgb(0 0 0 / 0.12);
   -webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
 }
-.backdrop-blur-xs { background: rgb(0 0 0 / 0.12); }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }

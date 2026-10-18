@@ -7,7 +7,6 @@ export const docs = defineDocs({
   dir: 'content/docs',
   docs: {
     schema: pageSchema.extend({
-      date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
       module: z.enum(['入门', '冲煮', '咖啡豆', '笔记', '数据与备份']).optional(),
     }),
   },

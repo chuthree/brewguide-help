@@ -24,3 +24,5 @@ public/brewguide-help/sql/
 
 # Local agent instructions
 /AGENTS.md
+/.agents/
+/skills-lock.json

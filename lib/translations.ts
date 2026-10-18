@@ -1,7 +1,7 @@
 // Fumadocs 16.17 uses contextual source strings as translation keys.
 export const translations = {
-  'Search(search trigger)': '搜索文档',
-  'Search(search dialog)': '搜索使用问题',
+  'Search(search trigger)': '搜索问题',
+  'Search(search dialog)': '搜索问题',
   'Open Search(search trigger)(aria-label)': '打开搜索',
   'Close Search(search dialog)(aria-label)': '关闭搜索',
   'No results found(search dialog)': '没有找到结果',
@@ -12,7 +12,6 @@ export const translations = {
   'Table of Contents(inline table of contents)': '目录',
   'Next Page(pagination)': '下一篇',
   'Previous Page(pagination)': '上一篇',
-  'Last updated on(page footer)': '最后更新',
   'Edit on GitHub(edit page)': '在 GitHub 编辑此页',
   'Open in GitHub(page actions)': '在 GitHub 打开',
   'Toggle Menu(mobile menu)(aria-label)': '切换菜单',
