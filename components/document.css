@@ -57,6 +57,67 @@
 }
 .markdown-body pre code { display: block; font: inherit; }
 .markdown-body pre code [data-line] { display: block; min-height: 1.7em; }
+.markdown-body .doc-code-block { margin-block: 8px; }
+.doc-code-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  /* Compensate horizontally for the whitespace above and below the glyphs. */
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: #fafafa;
+}
+.doc-code-prompt {
+  flex: 0 0 auto;
+  color: #a3a3a3;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 24px;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.markdown-body .doc-code-row pre {
+  /* Shiki adds padding to each line; the row already provides the inset. */
+  --padding-left: 0px;
+  --padding-right: 0px;
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  line-height: 24px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.markdown-body .doc-code-row pre code {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.markdown-body .doc-code-row pre code :is([data-line], .line) { display: inline; min-height: 0; }
+.doc-code-copy {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 24px;
+  height: 24px;
+  padding: 0;
+  border-radius: 4px;
+  color: #595959;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 150ms ease-out;
+}
+.doc-code-copy-icon { display: flex; width: 16px; height: 16px; }
+@media (hover: hover) {
+  .doc-code-copy:hover { background: #eee; }
+}
+.doc-code-copy:active { background: #e5e5e5; }
+.doc-code-copy:focus-visible { outline-offset: -3px; }
+.doc-code-error { display: block; margin-top: 4px; color: #a32929; font-size: 0.8125rem; }
 .markdown-body [style*='--shiki-light'] { color: var(--shiki-light); }
 .markdown-body blockquote { padding-left: 0.9em; border-left: 2px dashed #e5e5e5; color: #595959; }
 .markdown-body :is(ul, ol) { padding-left: 1.4em; }

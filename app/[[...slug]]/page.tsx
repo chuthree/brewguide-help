@@ -5,6 +5,7 @@ import SearchButton from '@/components/SearchButton';
 import CopyLinkButton from '@/components/CopyLinkButton';
 import DocParagraph from '@/components/DocParagraph';
 import DocImage from '@/components/DocImage';
+import DocCodeBlock from '@/components/DocCodeBlock';
 import { repositoryUrl, editBranch } from '@/lib/site';
 import { source } from '@/lib/source';
 import { iconButtonClass } from '@/components/iconButtonClass';
@@ -69,6 +70,7 @@ export default async function Page({ params }: Props) {
           <Content components={{
             p: DocParagraph,
             img: DocImage,
+            pre: DocCodeBlock,
             BeforeAfterCompare,
             InlineImagePreviewTag,
             InlineTextPreviewTag,
