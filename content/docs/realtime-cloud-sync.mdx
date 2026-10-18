@@ -1,0 +1,85 @@
+---
+title: Supabase 实时云同步
+date: 2026-02-25
+module: 数据与备份
+---
+
+使用 Supabase 实时云同步，即可在多台设备间保持数据一致。初始化数据库，获取 `Project URL` 与 `Publishable Key` 并填写到 Brew Guide 即可，
+
+> Supabase 注册流程较为繁琐。如不熟悉，可向 <InlineImagePreviewTag label="开发者" imageSrc="/contact/wechat.webp" imageAlt="微信二维码" /> 寻求协助。仅需提供邮箱用于注册与验证。
+
+---
+
+打开 [注册页面](https://supabase.com/dashboard/sign-up)，填写邮箱与密码并完成注册。
+
+![Supabase 注册界面](/brewguide-help/realtime-cloud-sync/01-supabase-sign-up.webp)
+
+---
+
+注册完成后，进入邮箱并点击验证链接。
+
+![邮箱验证界面](/brewguide-help/realtime-cloud-sync/02-email-verification.webp)
+
+---
+
+验证成功在 `Create a new organization` 页面，点击 `Create organization` 继续。
+
+![创建组织界面](/brewguide-help/realtime-cloud-sync/04-create-organization.webp)
+
+---
+
+点击 `Generate a password` 生成数据库密码，再点击 `Create new project`。
+
+![创建新项目](/brewguide-help/realtime-cloud-sync/05-create-project-generate-password.png)
+
+---
+
+项目创建完成后，将进入 `Project Overview` 页面。
+
+![Project Overview 页面](/brewguide-help/realtime-cloud-sync/06-project-overview.webp)
+
+---
+
+点击 `SQL Editor`，粘贴 <InlineTextPreviewTag label="SQL 命令" src="brewguide-help/sql/realtime-cloud-sync-init.sql" collapsedHeight={240} /> 中的内容，并点击 `Run` 执行。
+
+![SQL Editor 执行命令](/brewguide-help/realtime-cloud-sync/07-sql-editor-run.webp)
+
+---
+
+执行完成后返回 `Project Overview`，点击标题下方链接，获取并保存 `Project URL` 与 `Publishable Key`。
+
+![获取 Project URL 与 Publishable Key](/brewguide-help/realtime-cloud-sync/08-project-url-and-key.webp)
+
+---
+
+接下来，在 Brew Guide App 中完成同步配置。
+
+> 建议先手动备份当前数据，以避免覆盖。
+
+打开左上角图标进入 `设置`。
+
+![进入设置](/brewguide-help/realtime-cloud-sync/09-open-settings.webp)
+
+---
+
+点击 `数据与备份`。
+
+![进入数据与备份](/brewguide-help/realtime-cloud-sync/10-open-data-backup.webp)
+
+---
+
+在同步服务中选择 `Supabase 实时同步`。
+
+![选择同步服务](/brewguide-help/realtime-cloud-sync/11-select-sync-service.webp)
+
+---
+
+将获取的 `Project URL` 与 `Publishable Key` 填入对应输入框后等待自动同步完成。
+
+![填写云同步配置](/brewguide-help/realtime-cloud-sync/12-enter-sync-config.webp)
+
+---
+
+首次同步建议在已有数据的一台设备完成配置，等待自动上传完成后，再依次在其他设备进行设置。
+
+全部设备配置完成后，数据将保持实时同步。

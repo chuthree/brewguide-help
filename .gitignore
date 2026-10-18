@@ -1,0 +1,26 @@
+# Dependencies and package-manager cache
+node_modules/
+.pnpm-store/
+
+# Generated files
+.next/
+.source/
+out/
+next-env.d.ts
+*.tsbuildinfo
+public/brewguide-help/sql/
+
+# Local environment and editor settings
+.env*
+.idea/
+.vscode/
+.DS_Store
+
+# Logs and temporary editor files
+*.log
+*.swp
+*.swo
+*~
+
+# Local agent instructions
+/AGENTS.md

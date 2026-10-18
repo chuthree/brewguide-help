@@ -1,0 +1,91 @@
+/* Shared reading styles. Keep the original site's compact, single-column rhythm. */
+.markdown-body {
+  color: #333;
+  font-size: 0.9375rem;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+.markdown-body > * + * { margin-top: 0.6em; }
+.markdown-body p + p { margin-top: 20px; }
+.markdown-body > .md-block { display: flow-root; margin-block: 2rem; }
+.markdown-body :is(h1, h2, h3, h4) {
+  margin-block: 20px;
+  color: #111;
+  font-size: 1em;
+  font-weight: 500;
+  line-height: 1.5;
+  scroll-margin-top: 2rem;
+}
+.markdown-body :is(h1, h2, h3, h4):first-child,
+.markdown-body hr + :is(h1, h2, h3, h4) { margin-top: 0; }
+.markdown-body :is(h1, h2, h3, h4) + :is(p, ul, ol, blockquote) { margin-top: 0; }
+.markdown-body a, .inline-preview-trigger {
+  color: #525252;
+  text-decoration: underline;
+  text-decoration-color: #a3a3a3;
+  text-underline-offset: 3px;
+  transition: color 150ms, text-decoration-color 150ms;
+}
+.markdown-body a:hover, .inline-preview-trigger:hover { color: #111; text-decoration-color: currentColor; }
+.inline-preview-trigger { cursor: pointer; }
+.markdown-body :not(pre) > code {
+  border: 1px solid #e8e8e8;
+  border-radius: 6px;
+  padding: 0.08em 0.34em;
+  color: #424242;
+  font-size: 0.92em;
+  box-decoration-break: clone;
+}
+.markdown-body .md-code-paragraph { margin-block: 1.1em; }
+.markdown-body .md-code-paragraph > code {
+  display: block;
+  padding: 0.9em 1em;
+  border-radius: 12px;
+  white-space: pre-wrap;
+}
+.markdown-body :is(strong, b) { font-weight: 600; }
+.markdown-body pre {
+  max-height: min(28rem, 68vh);
+  overflow: auto;
+  border-radius: 12px;
+  padding: 1em;
+  background: #fafafa;
+  font-size: 0.8125rem;
+  line-height: 1.7;
+  white-space: pre;
+  overflow-wrap: normal;
+}
+.markdown-body pre code { display: block; font: inherit; }
+.markdown-body pre code [data-line] { display: block; min-height: 1.7em; }
+.markdown-body [style*='--shiki-light'] { color: var(--shiki-light); }
+.markdown-body blockquote { padding-left: 0.9em; border-left: 2px dashed #e5e5e5; color: #595959; }
+.markdown-body :is(ul, ol) { padding-left: 1.4em; }
+.markdown-body ul { list-style: none; padding-left: 1.2em; }
+.markdown-body ul > li { position: relative; }
+.markdown-body ul > li::before {
+  content: '';
+  position: absolute;
+  left: -1.1em;
+  top: 0.9em;
+  width: 0.65em;
+  height: 1px;
+  background: rgb(17 17 17 / 0.12);
+}
+.markdown-body ol { list-style: decimal; }
+.markdown-body li + li { margin-top: 0.3em; }
+.markdown-body li::marker { color: #737373; }
+.markdown-body hr {
+  border: 0;
+  width: 116px;
+  height: 2px;
+  margin: 48px auto;
+  background: repeating-linear-gradient(to right, #ebebeb 0 16px, transparent 16px 20px);
+}
+.markdown-body table { display: block; max-width: 100%; overflow-x: auto; border-collapse: collapse; font-size: 0.95em; }
+.markdown-body :is(th, td) { border: 1px solid #e5e5e5; padding: 0.4em 0.6em; text-align: left; min-width: 6em; }
+.markdown-body .md-image-frame { width: 100%; overflow: hidden; border-radius: 12px; background: #fff; box-shadow: var(--shadow-note-card); }
+.markdown-body .md-image { width: 100%; height: auto; display: block; }
+.markdown-body img { max-width: 100%; height: auto; border-radius: 12px; }
+[data-rmiz-modal-img] { border-radius: 12px; }
+.markdown-body .footnotes { margin-top: 3rem; border-top: 1px solid #e5e5e5; padding-top: 1.5rem; font-size: 0.8125rem; }
+.markdown-body [data-footnote-ref] { vertical-align: super; font-size: 0.75em; }

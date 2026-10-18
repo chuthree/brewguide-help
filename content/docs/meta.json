@@ -1,0 +1,25 @@
+{
+  "title": "使用教程",
+  "pages": [
+    "index",
+    "---入门---",
+    "quick-start",
+    "---冲煮---",
+    "grinder",
+    "---咖啡豆---",
+    "label-printing",
+    "repurchase-beans",
+    "show-used-up-beans",
+    "custom-bean-recognition-api",
+    "---笔记---",
+    "switch-note-layout",
+    "note-rating-radar-chart",
+    "---数据与备份---",
+    "s3-cloud-backup-qiniu",
+    "s3-cloud-backup",
+    "webdav",
+    "realtime-cloud-sync",
+    "---参与完善---",
+    "contributing"
+  ]
+}

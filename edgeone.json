@@ -1,0 +1,6 @@
+{
+  "installCommand": "npm install --global pnpm@12.11.2 && pnpm install --frozen-lockfile",
+  "buildCommand": "pnpm build",
+  "outputDirectory": "out",
+  "nodeVersion": "22.11.0"
+}

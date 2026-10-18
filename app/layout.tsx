@@ -1,0 +1,28 @@
+import type { Metadata } from 'next';
+import { RootProvider } from 'fumadocs-ui/provider/next';
+import { siteUrl } from '@/lib/site';
+import { translations } from '@/lib/translations';
+import './global.css';
+
+export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  title: { default: 'Brew Guide Help', template: '%s · Brew Guide Help' },
+  description: 'Brew Guide 使用教程与常见问题：冲煮、咖啡豆、笔记、数据与备份。',
+  openGraph: { siteName: 'Brew Guide Help', locale: 'zh_CN', type: 'website' },
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="zh-CN" suppressHydrationWarning>
+      <body className="flex min-h-screen flex-col">
+        <RootProvider
+          theme={{ forcedTheme: 'light', enableSystem: false, hotKey: false }}
+          i18n={{ locale: 'zh', translations }}
+          search={{ options: { type: 'static', api: '/search.json' } }}
+        >
+          {children}
+        </RootProvider>
+      </body>
+    </html>
+  );
+}
