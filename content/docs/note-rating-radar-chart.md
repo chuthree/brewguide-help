@@ -1,9 +1,9 @@
 ---
-title: 评分维度雷达图
+title: 评分雷达图
 module: 笔记
 ---
 
-![评分维度雷达图示意](/brewguide-help/note-rating-radar-chart/rating-radar-chart-cover.webp)
+![评分雷达图示意](/brewguide-help/note-rating-radar-chart/rating-radar-chart-cover.webp)
 
 使用雷达图能清晰看到每条笔记的评分分布，和同豆笔记对比也更直观。
 
