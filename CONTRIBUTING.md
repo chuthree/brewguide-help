@@ -1,23 +1,18 @@
 # 贡献指南
 
-欢迎一起完善 Brew Guide 的帮助文档。你可以修改现有文章，也可以分享经验、添加新的教程。
+欢迎修正文章、补充步骤或添加教程。也可以在 Brew Guide 用户群中反馈问题、分享草稿。
 
-## 修改一篇文章
+## 修改文章
 
-小范围文字修改可以直接在 GitHub 完成：
+1. 点击文章底部的「在 GitHub 编辑此页」，登录 GitHub。
+2. 修改文字，点击 `Commit changes` 或 `Propose changes` 保存，并简要说明原因。提示创建副本（Fork）或分支时，按页面指引操作。
+3. 创建 `Pull Request`（修改申请），提交到 `chuthree/brewguide-help` 的 `main` 分支。
 
-1. 在文章底部点击「在 GitHub 编辑此页」，登录 GitHub。
-2. 修改正文。如果页面提示创建副本（Fork），按提示继续。
-3. 点击 **Commit changes** 或 **Propose changes**，简要说明修改内容；如需选择分支，创建一个新分支保存修改。
-4. 按提示创建 **Pull Request**，将修改提交到 `chuthree/brewguide-help` 的 `main` 分支。
+我们会审核修改并更新文档。文字修改无需安装开发环境，可先用 GitHub 的 `Preview` 检查排版。
 
-Pull Request 是一份修改申请。提交后，我们会查看内容，并在需要时与你讨论。更新发布后，帮助站就会显示修改后的内容。
+## 添加教程
 
-文字修正不需要先安装开发环境。可以用 GitHub 的 **Preview** 检查文字排版，图片及交互效果以站点预览为准。
-
-## 添加一篇教程
-
-在 `content/docs/` 中新建一个 Markdown（`.md`）文件，也可以复制一篇主题相近的文章来修改。文件名会成为文章地址，例如 `example.md` 对应 `/example/`。
+在 `content/docs/` 新建 `.md` 文件，也可以复制相近的文章修改。文件名决定地址，例如 `example.md` 对应 `/example/`。
 
 ```markdown
 ---
@@ -25,37 +20,37 @@ title: 教程标题
 module: 咖啡豆
 ---
 
-简要说明这篇教程能帮助读者完成什么。
+说明用途和必要的准备，再按操作顺序写清步骤。
 
-## 操作步骤
-
-1. 打开相应页面。
-2. 完成操作，说明如何确认结果。
-
-![截图中与操作有关的内容](/brewguide-help/example/step.webp)
+![与操作有关的截图](/brewguide-help/example/step.webp)
 ```
 
-文章不添加发布日期或更新日期。分类使用「入门、冲煮、咖啡豆、笔记、数据与备份」之一。图片放在 `public/brewguide-help/<文件名>/` 下，文中引用时省略 `public`。
+`module` 使用「入门、冲煮、咖啡豆、笔记、数据与备份」之一，不添加日期。图片放在 `public/brewguide-help/<文件名>/` 下，引用时省略 `public`。
 
-完成后，在首页 `content/docs/index.md` 和目录 `content/docs/meta.json` 的对应分类中添加文章入口，再提交修改申请。也可以先在用户群中分享草稿，由我们协助整理。
+完成后，在首页 `content/docs/index.mdx` 和目录 `content/docs/meta.json` 的对应分类中添加入口，再提交修改申请。
 
-## 写得清楚就好
+普通文章使用 `.md`；图片对比、SQL 预览等需要交互组件时使用 `.mdx`，可联系我们协助。图片放大和代码块复制由站点提供，无需额外配置。
 
-- **围绕一个问题。** 开头说明用途，有准备工作时放在步骤之前。
-- **按操作顺序写。** 多步操作使用编号，每一步写清位置、动作和必要的结果。
-- **使用实际名称。** 按 App 中的文字描述按钮和设置，避免猜测功能或效果。
-- **让截图辅助说明。** 截图放在相关步骤附近，配上简短描述，并遮住个人信息和密钥。
+## 文案与格式
 
-短教程用几段文字就够了，不必为了格式增加标题。修改旧文时，保留原来的地址、分类和来源；需要调整文章结构时，在修改说明中交代原因即可。
+一篇文章围绕一个任务，写清在哪里操作、填什么，以及如何确认结果。使用 App 中的实际名称，必要条件紧跟对应步骤。
 
-## 带交互的文章
+用短段落自然叙述，主题或设备分支切换时用 `---` 分隔。不使用加粗，不为短教程强加标题和编号。截图放在相关步骤附近，并遮住个人信息和密钥。
 
-普通文字、图片、列表和表格都可以写在 `.md` 文件里。图片放大由站点自动提供，不需要额外编写组件。
+菜单、按钮和输入值用行内代码，例如 `设置` - `实验性设置`。完整命令用带语言标记的代码块：macOS 和 Linux 用 `bash`，PowerShell 用 `powershell`，纯文本用 `text`。
 
-图片对比、SQL 预览等交互使用 `.mdx`。修改这类文章时，可以照常编辑文字；需要添加或调整组件时，我们可以协助处理。
+````markdown
+```bash
+brew install --cask chuthree/brew-guide/brew-guide
+```
+````
 
-## 需要本地预览时
+代码块显示一行，超出时省略，复制会保留完整内容和换行。命令块不混入 `$` 提示符、说明或执行结果；输出示例另用 `text` 代码块，并在前文说明。
 
-安装与预览方法见 [站点维护](docs/maintenance.md)。无法本地检查也可以提交，并说明需要我们协助预览。
+修改旧文时，保留原有地址、分类、事实和来源链接。
 
-这些写作约定参考了 [Microsoft 的操作步骤规范](https://learn.microsoft.com/en-us/style-guide/procedures-instructions/writing-step-by-step-instructions) 和 [Diátaxis 的任务导向指南](https://diataxis.fr/how-to-guides/)，按本站的小型用户帮助文档做了简化。
+## 本地预览
+
+操作方法见 [站点维护](docs/maintenance.md)。无法本地检查也可以提交，并说明需要协助预览。
+
+写作约定参考 [Microsoft 操作步骤规范](https://learn.microsoft.com/en-us/style-guide/procedures-instructions/writing-step-by-step-instructions)、[Diátaxis](https://diataxis.fr/how-to-guides/)；代码块语法见 [CommonMark](https://spec.commonmark.org/0.30/#fenced-code-blocks)。
