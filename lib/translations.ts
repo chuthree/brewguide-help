@@ -1,7 +1,9 @@
 // Fumadocs 16.17 uses contextual source strings as translation keys.
+export const searchLabel = '搜索问题';
+
 export const translations = {
-  'Search(search trigger)': '搜索问题',
-  'Search(search dialog)': '搜索问题',
+  'Search(search trigger)': searchLabel,
+  'Search(search dialog)': searchLabel,
   'Open Search(search trigger)(aria-label)': '打开搜索',
   'Close Search(search dialog)(aria-label)': '关闭搜索',
   'No results found(search dialog)': '没有找到结果',

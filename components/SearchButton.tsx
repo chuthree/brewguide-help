@@ -3,6 +3,7 @@
 import { useSearchContext } from 'fumadocs-ui/contexts/search';
 import SearchGlyph from './SearchGlyph';
 import { iconButtonClass } from './iconButtonClass';
+import { searchLabel } from '@/lib/translations';
 
 export default function SearchButton({ full = false }: { full?: boolean }) {
   const { setOpenSearch } = useSearchContext();
@@ -10,14 +11,14 @@ export default function SearchButton({ full = false }: { full?: boolean }) {
     <button
       type="button"
       onClick={() => setOpenSearch(true)}
-      aria-label="搜索问题"
+      aria-label={searchLabel}
       aria-haspopup="dialog"
       className={full
         ? 'help-search-bar w-full cursor-pointer text-left transition-colors duration-150 ease-out'
         : iconButtonClass}
     >
       <SearchGlyph />
-      {full && <span>搜索问题</span>}
+      {full && <span>{searchLabel}</span>}
     </button>
   );
 }

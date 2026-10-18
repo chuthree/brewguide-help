@@ -90,7 +90,7 @@ body { background: #fff; color: #333; }
   display: flex;
   align-items: center;
   gap: 8px;
-  height: 44px;
+  height: 40px;
   padding: 6px 12px;
   border: 0;
   border-radius: 12px;
@@ -112,9 +112,13 @@ body { background: #fff; color: #333; }
 [role='dialog']:has(input[role='combobox']) {
   --search-dialog-top: max(48px, env(safe-area-inset-top));
   top: var(--search-dialog-top);
+  left: 0;
+  right: var(--removed-body-scroll-bar-size, 0px);
+  margin-inline: auto;
+  translate: none;
   display: flex;
   flex-direction: column;
-  width: calc(100% - 24px);
+  width: calc(100% - var(--removed-body-scroll-bar-size, 0px) - 24px);
   max-width: 536px;
   padding: 0;
   max-height: calc(100dvh - var(--search-dialog-top) - 16px);
@@ -166,8 +170,8 @@ body { background: #fff; color: #333; }
 [role='dialog'] input[role='combobox']::placeholder { color: #525252; opacity: 1; }
 .help-search-bar > svg,
 [role='dialog'] div:has(> input[role='combobox']) > svg {
-  width: 18px;
-  height: 18px;
+  width: 15px;
+  height: 15px;
   flex-shrink: 0;
   color: inherit;
   stroke-width: 2;

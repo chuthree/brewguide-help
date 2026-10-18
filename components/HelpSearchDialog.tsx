@@ -11,6 +11,7 @@ import {
   type SharedProps,
 } from 'fumadocs-ui/components/dialog/search';
 import SearchGlyph from './SearchGlyph';
+import { searchLabel } from '@/lib/translations';
 
 export default function HelpSearchDialog(props: SharedProps) {
   const search = useStaticSearch({ from: '/search.json', locale: 'zh' });
@@ -21,7 +22,7 @@ export default function HelpSearchDialog(props: SharedProps) {
       <SearchDialogContent>
         <SearchDialogHeader>
           <SearchGlyph className={search.isLoading ? 'animate-pulse' : undefined} />
-          <SearchDialogInput />
+          <SearchDialogInput aria-label={searchLabel} placeholder={searchLabel} />
         </SearchDialogHeader>
         <SearchDialogList />
       </SearchDialogContent>
