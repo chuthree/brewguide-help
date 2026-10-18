@@ -41,15 +41,16 @@
 .heading:focus { outline: none; }
 .heading svg { flex-shrink: 0; color: #737373; }
 .devices, .options { display: grid; gap: var(--guide-row-gap); }
-.devices, .content, .methodView { margin-top: var(--guide-content-gap); }
-.guide p.description { margin: var(--guide-copy-gap) 0 0; padding-inline: 12px; color: #737373; }
+.devices, .content { margin-top: var(--guide-content-gap); }
+.guide p.description { margin: var(--guide-copy-gap) 0 0; padding-inline: 12px; color: inherit; }
 
-.methodView { display: flex; flex-direction: column; gap: var(--guide-content-gap); min-width: 0; }
+.methodView { display: flex; flex-direction: column; gap: var(--guide-content-gap); min-width: 0; margin-top: var(--guide-copy-gap); }
 .guide ol.steps {
   margin: 0;
-  padding: 0 4px 0 24px;
+  padding-block: 0;
+  padding-inline: 28px 12px;
 }
-.guide .steps > li + li { margin-top: 12px; }
+.guide .steps > li + li { margin-top: var(--guide-copy-gap); }
 .steps p { margin: 0; }
 .operations { display: grid; flex-shrink: 0; gap: var(--guide-row-gap); }
 

@@ -60,7 +60,7 @@ export default function DownloadGuide() {
     return (
       <button key={item.id} type="button" className={styles.device} onClick={(event) => { methodTrigger.current = event.currentTarget; setMethod(item); setPage(2); }}>
         <span>{label}</span>
-        <span className={styles.action}>查看步骤<InterfaceIcon name="right" width={16} aria-hidden="true" /></span>
+        <InterfaceIcon name="right" width={16} aria-hidden="true" />
       </button>
     );
   }
@@ -133,7 +133,7 @@ export default function DownloadGuide() {
                       return installMethod ? methodButton(installMethod, download.label) : (
                         <a key={download.url} href={download.url} className={styles.device}>
                           <span>{download.label}</span>
-                          <span className={styles.action}>下载<InterfaceIcon name="download" width={16} aria-hidden="true" /></span>
+                          <InterfaceIcon name="download" width={16} aria-hidden="true" />
                         </a>
                       );
                     })}
