@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from "next/script";
 import { RootProvider } from 'fumadocs-ui/provider/next';
 import { siteUrl } from '@/lib/site';
 import HelpSearchDialog from '@/components/HelpSearchDialog';
@@ -14,6 +15,15 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="zh-CN" suppressHydrationWarning>
+      <head>
+        {process.env.NODE_ENV === "development" && (
+          <Script
+            src="//unpkg.com/react-grab/dist/index.global.js"
+            crossOrigin="anonymous"
+            strategy="beforeInteractive"
+          />
+        )}
+      </head>
       <body className="flex min-h-screen flex-col">
         <RootProvider
           theme={{ forcedTheme: 'light', enableSystem: false, hotKey: false }}
