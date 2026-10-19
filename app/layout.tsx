@@ -25,6 +25,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         )}
       </head>
       <body className="flex min-h-screen flex-col">
+        {process.env.NODE_ENV === 'production' && (
+          <Script
+            id="site-metrics"
+            src="/site-metrics.js"
+            strategy="afterInteractive"
+            data-website-id="79e755d1-9a63-4f8c-a765-d9c23363d202"
+            data-host-url={siteUrl}
+            data-do-not-track="true"
+            data-exclude-search="true"
+            data-exclude-hash="true"
+            data-domains="brewguide-help.chu3.top"
+          />
+        )}
         <RootProvider
           theme={{ forcedTheme: 'light', enableSystem: false, hotKey: false }}
           i18n={{ locale: 'zh', translations }}
