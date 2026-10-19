@@ -1,0 +1,173 @@
+/* Brew Guide help articles in Typora. Mirrors components/document.css. */
+:root {
+  --bg-color: #fff;
+  --text-color: #333;
+  --side-bar-bg-color: #fafafa;
+  --control-text-color: #525252;
+  --item-hover-bg-color: #f7f7f7;
+  --active-file-bg-color: #f2f2f2;
+  --active-file-text-color: #111;
+  --primary-color: #525252;
+}
+
+html {
+  font-size: 15px;
+}
+
+body {
+  background: #fff;
+  color: #333;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;
+  line-height: 1.8;
+}
+
+#write {
+  box-sizing: border-box;
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 24px 24px 48px;
+  overflow-wrap: anywhere;
+}
+
+#write > * {
+  margin-block: 0;
+}
+
+#write > * + * {
+  margin-top: 0.6em;
+}
+
+#write > p + p {
+  margin-top: 20px;
+}
+
+#write :is(h1, h2, h3, h4, h5, h6) {
+  margin-block: 20px;
+  color: #111;
+  font-size: 1em;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+#write :is(h1, h2, h3, h4, h5, h6):first-child,
+#write hr + :is(h1, h2, h3, h4, h5, h6) {
+  margin-top: 0;
+}
+
+#write :is(h1, h2, h3, h4, h5, h6) + :is(p, ul, ol, blockquote) {
+  margin-top: 0;
+}
+
+#write a {
+  color: #525252;
+  text-decoration: underline;
+  text-decoration-color: #a3a3a3;
+  text-underline-offset: 3px;
+}
+
+#write a:hover {
+  color: #111;
+  text-decoration-color: currentColor;
+}
+
+#write :is(strong, b) {
+  font-weight: 600;
+}
+
+#write :not(pre) > code {
+  padding: 0.08em 0.34em;
+  border: 1px solid #e8e8e8;
+  border-radius: 6px;
+  color: #424242;
+  font-size: 0.92em;
+  box-decoration-break: clone;
+}
+
+#write :is(pre, .md-fences) {
+  padding: 1em;
+  border-radius: 12px;
+  background: #fafafa;
+  font-size: 13px;
+  line-height: 1.7;
+  overflow-x: auto;
+}
+
+#write :is(pre, .md-fences) code {
+  font: inherit;
+}
+
+#write blockquote {
+  padding-left: 0.9em;
+  border-left: 2px dashed #e5e5e5;
+  color: #595959;
+}
+
+#write :is(ul, ol) {
+  padding-left: 1.4em;
+}
+
+#write ul {
+  list-style: none;
+  padding-left: 1.2em;
+}
+
+#write ul > li {
+  position: relative;
+}
+
+#write ul > li:not(.task-list-item)::before {
+  content: '';
+  position: absolute;
+  left: -1.1em;
+  top: 0.9em;
+  width: 0.65em;
+  height: 1px;
+  background: rgb(17 17 17 / 0.12);
+}
+
+#write ol {
+  list-style: decimal;
+}
+
+#write li + li {
+  margin-top: 0.3em;
+}
+
+#write li::marker {
+  color: #737373;
+}
+
+#write hr {
+  width: 116px;
+  height: 2px;
+  margin: 48px auto;
+  border: 0;
+  background: repeating-linear-gradient(to right, #ebebeb 0 16px, transparent 16px 20px);
+}
+
+#write table {
+  max-width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95em;
+}
+
+#write :is(th, td) {
+  min-width: 6em;
+  padding: 0.4em 0.6em;
+  border: 1px solid #e5e5e5;
+  text-align: left;
+}
+
+#write img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.06), 0 2px 4px rgb(0 0 0 / 0.04);
+}
+
+#write .footnotes {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5e5e5;
+  font-size: 13px;
+}

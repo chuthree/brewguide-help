@@ -10,6 +10,8 @@
 - [贡献指南](CONTRIBUTING.md)：编辑文章、添加教程和提交修改。
 - [站点维护](docs/maintenance.md)：本地预览、项目结构与构建配置。
 
+- [Typora 主题](typora/brew-guide.css)：编辑教程时使用。
+
 ## 关于项目
 
 文档默认使用 Markdown（`.md`）编写，需要交互组件的文章使用 MDX（`.mdx`）。站点基于 Next.js 与 Fumadocs 构建为静态页面，文章位于 `content/docs/`，图片位于 `public/brewguide-help/`。
