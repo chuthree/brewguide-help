@@ -11,7 +11,7 @@ import documentStyles from './document.module.css';
 import '@/transitions/download-guide.css';
 
 const devices = [
-  { id: 'ios', label: 'iPhone 或 iPad', title: 'iOS', description: '优先使用 Web APP，或使用 IPA 自行签名安装。', Icon: FaAppStoreIos },
+  { id: 'ios', label: 'iPhone 或 iPad', title: 'iOS', description: '优先使用 Web App，或使用 IPA 自行签名安装。', Icon: FaAppStoreIos },
   { id: 'android', label: 'Android', title: 'Android', description: '使用 APK 安装包，下载后打开安装。', Icon: FaAndroid },
   { id: 'macos', label: 'macOS', title: 'macOS', description: '优先使用 Homebrew，或使用对应芯片的 DMG 安装包。', Icon: FaApple },
   { id: 'windows', label: 'Windows', title: 'Windows', description: '优先使用 WinGet，或使用 EXE 安装包。', Icon: FaWindows },

@@ -1,8 +1,8 @@
 export type DownloadDeviceId = 'ios' | 'android' | 'macos' | 'windows' | 'linux';
 type Download = { label: string; url: string };
 
-// Keep the current version and filenames aligned with chu3-web-next's brewGuideDownloads.ts.
-const version = '1.6.2';
+// 与 brew-guide 的 GitHub Release 版本和资源文件名保持一致。
+const version = '1.7.0';
 const asset = (suffix: string) => `https://github.com/chuthree/brew-guide/releases/download/v${version}/BrewGuide_${version}_${suffix}`;
 
 export const currentDownloads: Record<DownloadDeviceId, Download[]> = {
@@ -24,12 +24,12 @@ export type InstallMethod = {
   actions: InstallAction[];
 };
 
-const macSigningCommand = 'xattr -cr "/Applications/Brew Guide.app"\ncodesign --force --deep --sign - "/Applications/Brew Guide.app"';
-const macSigningStep = {
-  text: '应用未经 Apple 开发者签名，首次打开前，在终端执行以下命令，解除下载隔离并本地自签：',
-  command: macSigningCommand,
+const macQuarantineCommand = 'xattr -cr /Applications/Brew\\ Guide.app';
+const macQuarantineStep = {
+  text: '应用未经 Apple 公证，如首次打开提示无法验证，请在终端执行：',
+  command: macQuarantineCommand,
 };
-const macSigningAction: InstallAction = { kind: 'copy', label: '复制签名命令', value: macSigningCommand };
+const macQuarantineAction: InstallAction = { kind: 'copy', label: '复制命令', value: macQuarantineCommand };
 const homebrewCommand = 'brew install --cask chuthree/brew-guide/brew-guide';
 const wingetCommand = 'winget install chuthree.brewguide';
 
@@ -74,10 +74,10 @@ export function getDownloadInstallMethod(device: DownloadDeviceId, download: { l
       title: download.label,
       steps: [
         { text: '下载并打开 DMG，将 Brew Guide 拖入「应用程序」。' },
-        macSigningStep,
+        macQuarantineStep,
         { text: '完成后，从「应用程序」打开 Brew Guide。' },
       ],
-      actions: [action, macSigningAction],
+      actions: [action, macQuarantineAction],
     };
   }
   if (device === 'ios') {
@@ -92,7 +92,8 @@ export function getDownloadInstallMethod(device: DownloadDeviceId, download: { l
     };
   }
   if (device === 'linux') {
-    const command = 'chmod +x BrewGuide_*_linux_x64.AppImage\n./BrewGuide_*_linux_x64.AppImage';
+    const filename = `BrewGuide_${version}_linux_x64.AppImage`;
+    const command = `chmod +x ${filename}\n./${filename}`;
     return {
       id: download.url,
       title: '使用 Linux AppImage',
