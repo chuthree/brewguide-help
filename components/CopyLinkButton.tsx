@@ -57,7 +57,7 @@ export default function CopyLinkButton() {
             >
                 <AnimatedIcon name={copied ? 'check' : 'link'} />
             </button>
-            <span className={failed ? 'absolute right-0 top-full mt-2 w-64 text-right text-xs text-neutral-600' : 'sr-only'} role="status">{copied ? '链接已复制' : failed ? '复制失败，请复制浏览器地址栏中的链接。' : ''}</span>
+            <span className={failed ? 'absolute right-0 top-full mt-2 w-64 text-right text-xs text-[var(--color-text-secondary)]' : 'sr-only'} role="status">{copied ? '链接已复制' : failed ? '复制失败，请复制浏览器地址栏中的链接。' : ''}</span>
         </>
     )
 }

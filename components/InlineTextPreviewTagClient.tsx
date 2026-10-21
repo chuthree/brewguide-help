@@ -289,23 +289,23 @@ export default function InlineTextPreviewTagClient({
                                       pointerEvents: 'none',
                                   }),
                         }}
-                        className="fixed z-50 w-[min(92vw,30rem)] rounded-xl bg-white p-1 shadow-[0_0_0_1px_rgb(0_0_0/0.06),0_1px_2px_-1px_rgb(0_0_0/0.06),0_2px_4px_0_rgb(0_0_0/0.04)]"
+                        className="fixed z-50 w-[min(92vw,30rem)] rounded-xl bg-[var(--color-surface)] p-1 shadow-note-card"
                         {...getFloatingProps()}
                     >
-                        <div className="relative overflow-hidden rounded-lg bg-neutral-50 shadow-[0_0_0_1px_rgb(0_0_0/0.06),0_1px_2px_-1px_rgb(0_0_0/0.06),0_2px_4px_0_rgb(0_0_0/0.04)]">
+                        <div className="relative overflow-hidden rounded-lg bg-[var(--color-surface-subtle)] shadow-note-card">
                             <pre
                                 ref={textRef}
                                 style={{
                                     maxHeight: expanded ? '60vh' : `${collapsedHeight}px`,
                                     overflow: expanded ? 'auto' : 'hidden',
                                 }}
-                                className="overflow-hidden bg-neutral-50 px-3 py-2 font-mono text-[12px] leading-5 break-all whitespace-pre-wrap text-neutral-700"
+                                className="overflow-hidden bg-[var(--color-surface-subtle)] px-3 py-2 font-mono text-[12px] leading-5 break-all whitespace-pre-wrap text-[var(--color-text-code)]"
                             >
                                 {displayText}
                             </pre>
                             {state.copied ? (
                                 <div
-                                    className={`pointer-events-none absolute bottom-0 left-0 z-10 rounded-tr-sm rounded-bl-lg bg-linear-to-t from-emerald-100 to-emerald-50 px-1 py-1 text-[11px] leading-none text-emerald-700 transition-all duration-260 ease-[cubic-bezier(0.3,0,0.2,1)] ${
+                                    className={`pointer-events-none absolute bottom-0 left-0 z-10 rounded-tr-sm rounded-bl-lg bg-[var(--color-success-surface)] px-1 py-1 text-[11px] leading-none text-[var(--color-success-text)] transition-all duration-260 ease-[cubic-bezier(0.3,0,0.2,1)] ${
                                         state.copiedLeaving
                                             ? 'opacity-0'
                                             : 'opacity-100'
@@ -315,10 +315,10 @@ export default function InlineTextPreviewTagClient({
                                 </div>
                             ) : null}
                             {state.hasOverflow && !expanded ? (
-                                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-14 rounded-b-lg bg-linear-to-b from-transparent to-neutral-50" />
+                                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-14 rounded-b-lg bg-linear-to-b from-transparent to-[var(--color-surface-subtle)]" />
                             ) : null}
                         </div>
-                        <div className="flex flex-wrap items-center gap-3 px-2 py-2 text-xs text-neutral-500">
+                        <div className="flex flex-wrap items-center gap-3 px-2 py-2 text-xs text-[var(--color-text-muted)]">
                             <button type="button" className="cursor-pointer hover:text-fd-foreground" onClick={() => void handleCopy()}>复制 SQL</button>
                             {state.hasOverflow && <button type="button" className="cursor-pointer hover:text-fd-foreground" onClick={() => setExpanded(!expanded)}>{expanded ? '收起' : '展开全文'}</button>}
                             {downloadUrl && <a href={downloadUrl} download className="hover:text-fd-foreground">下载 SQL</a>}

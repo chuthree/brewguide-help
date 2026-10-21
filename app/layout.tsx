@@ -39,7 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           />
         )}
         <RootProvider
-          theme={{ forcedTheme: 'light', enableSystem: false, hotKey: false }}
+          theme={{ defaultTheme: 'system', enableSystem: true, disableTransitionOnChange: true, hotKey: false }}
           i18n={{ locale: 'zh', translations }}
           search={{ SearchDialog: HelpSearchDialog }}
         >

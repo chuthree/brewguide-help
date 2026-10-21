@@ -61,7 +61,7 @@ export default async function Page({ params }: Props) {
           </div>
         )}
       </nav>
-      {!isHome && <header className="mb-6 text-sm leading-relaxed text-black">
+      {!isHome && <header className="mb-6 text-sm leading-relaxed text-[var(--color-text-heading)]">
         <h1 className="font-normal">
           {page.data.title}
         </h1>
@@ -77,7 +77,7 @@ export default async function Page({ params }: Props) {
           }} />
       </article>
       <footer className="mt-12 text-sm leading-[1.8]">
-        <a className="inline-flex items-center gap-2 text-neutral-500 transition-colors hover:text-neutral-800 focus-visible:outline-2 focus-visible:outline-offset-4" href={`${repositoryUrl}/edit/${editBranch}/content/docs/${page.path}`} target="_blank" rel="noreferrer" aria-label="在 GitHub 编辑此页（新窗口打开）">
+        <a className="inline-flex items-center gap-2 text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text-heading)] focus-visible:outline-2 focus-visible:outline-offset-4" href={`${repositoryUrl}/edit/${editBranch}/content/docs/${page.path}`} target="_blank" rel="noreferrer" aria-label="在 GitHub 编辑此页（新窗口打开）">
           <svg className="shrink-0 translate-y-[2px]" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="m15 10 5 5-5 5" />
             <path d="M4 4v7a4 4 0 0 0 4 4h12" />

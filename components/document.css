@@ -1,6 +1,6 @@
 /* Shared reading styles. Keep the original site's compact, single-column rhythm. */
 .markdown-body {
-  color: #333;
+  color: var(--color-text);
   font-size: 0.9375rem;
   line-height: 1.8;
   overflow-wrap: anywhere;
@@ -10,7 +10,7 @@
 .markdown-body > .md-block { display: flow-root; margin-block: 2rem; }
 .markdown-body :is(h1, h2, h3, h4) {
   margin-block: 20px;
-  color: #111;
+  color: var(--color-text-heading);
   font-size: 1em;
   font-weight: 500;
   line-height: 1.5;
@@ -20,19 +20,19 @@
 .markdown-body hr + :is(h1, h2, h3, h4) { margin-top: 0; }
 .markdown-body :is(h1, h2, h3, h4) + :is(p, ul, ol, blockquote) { margin-top: 0; }
 .markdown-body a, .inline-preview-trigger {
-  color: #525252;
+  color: var(--color-text-secondary);
   text-decoration: underline;
-  text-decoration-color: #a3a3a3;
+  text-decoration-color: var(--color-underline);
   text-underline-offset: 3px;
   transition: color 150ms, text-decoration-color 150ms;
 }
-.markdown-body a:hover, .inline-preview-trigger:hover { color: #111; text-decoration-color: currentColor; }
+.markdown-body a:hover, .inline-preview-trigger:hover { color: var(--color-text-heading); text-decoration-color: currentColor; }
 .inline-preview-trigger { cursor: pointer; }
 .markdown-body :not(pre) > code {
-  border: 1px solid #e8e8e8;
+  border: 1px solid var(--color-border-code);
   border-radius: 6px;
   padding: 0.08em 0.34em;
-  color: #424242;
+  color: var(--color-text-code);
   font-size: 0.92em;
   box-decoration-break: clone;
 }
@@ -49,7 +49,7 @@
   overflow: auto;
   border-radius: 12px;
   padding: 1em;
-  background: #fafafa;
+  background: var(--color-surface-subtle);
   font-size: 0.8125rem;
   line-height: 1.7;
   white-space: pre;
@@ -65,11 +65,11 @@
   /* Compensate horizontally for the whitespace above and below the glyphs. */
   padding: 6px 10px;
   border-radius: 8px;
-  background: #fafafa;
+  background: var(--color-surface-subtle);
 }
 .doc-code-prompt {
   flex: 0 0 auto;
-  color: #a3a3a3;
+  color: var(--color-text-prompt);
   font-family: var(--font-mono);
   font-size: 0.8125rem;
   line-height: 24px;
@@ -114,20 +114,20 @@
   height: 24px;
   padding: 0;
   border-radius: 4px;
-  color: #595959;
+  color: var(--color-text-quote);
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   transition: background-color 150ms ease-out;
 }
 .doc-code-copy-icon { display: flex; width: 16px; height: 16px; }
 @media (hover: hover) {
-  .doc-code-copy:hover { background: #eee; }
+  .doc-code-copy:hover { background: var(--color-surface-hover); }
 }
-.doc-code-copy:active { background: #e5e5e5; }
+.doc-code-copy:active { background: var(--color-surface-pressed); }
 .doc-code-copy:focus-visible { outline-offset: -3px; }
-.doc-code-error { display: block; margin-top: 4px; color: #a32929; font-size: 0.8125rem; }
+.doc-code-error { display: block; margin-top: 4px; color: var(--color-text-error); font-size: 0.8125rem; }
 .markdown-body [style*='--shiki-light'] { color: var(--shiki-light); }
-.markdown-body blockquote { padding-left: 0.9em; border-left: 2px dashed #e5e5e5; color: #595959; }
+.markdown-body blockquote { padding-left: 0.9em; border-left: 2px dashed var(--color-border); color: var(--color-text-quote); }
 .markdown-body :is(ul, ol) { padding-left: 1.4em; }
 .markdown-body ul { list-style: none; padding-left: 1.2em; }
 .markdown-body ul > li { position: relative; }
@@ -138,23 +138,28 @@
   top: 0.9em;
   width: 0.65em;
   height: 1px;
-  background: rgb(17 17 17 / 0.12);
+  background: var(--color-list-rule);
 }
 .markdown-body ol { list-style: decimal; }
 .markdown-body li + li { margin-top: 0.3em; }
-.markdown-body li::marker { color: #737373; }
+.markdown-body li::marker { color: var(--color-text-muted); }
 .markdown-body hr {
   border: 0;
   width: 116px;
   height: 2px;
   margin: 48px auto;
-  background: repeating-linear-gradient(to right, #ebebeb 0 16px, transparent 16px 20px);
+  background: repeating-linear-gradient(to right, var(--color-divider) 0 16px, transparent 16px 20px);
 }
 .markdown-body table { display: block; max-width: 100%; overflow-x: auto; border-collapse: collapse; font-size: 0.95em; }
-.markdown-body :is(th, td) { border: 1px solid #e5e5e5; padding: 0.4em 0.6em; text-align: left; min-width: 6em; }
-.markdown-body .md-image-frame { width: 100%; overflow: hidden; border-radius: 12px; background: #fff; box-shadow: var(--shadow-note-card); }
+.markdown-body :is(th, td) { border: 1px solid var(--color-border); padding: 0.4em 0.6em; text-align: left; min-width: 6em; }
+.markdown-body .md-image-frame { width: 100%; overflow: hidden; border-radius: 12px; background: var(--color-surface); box-shadow: var(--shadow-note-card); }
 .markdown-body .md-image { width: 100%; height: auto; display: block; }
 .markdown-body img { max-width: 100%; height: auto; border-radius: 12px; }
 [data-rmiz-modal-img] { border-radius: 12px; }
-.markdown-body .footnotes { margin-top: 3rem; border-top: 1px solid #e5e5e5; padding-top: 1.5rem; font-size: 0.8125rem; }
+.markdown-body .footnotes { margin-top: 3rem; border-top: 1px solid var(--color-border); padding-top: 1.5rem; font-size: 0.8125rem; }
 .markdown-body [data-footnote-ref] { vertical-align: super; font-size: 0.75em; }
+
+/* Shiki emits both themes; choose the dark tokens without filtering the code. */
+.dark .markdown-body [style*='--shiki-dark'] { color: var(--shiki-dark); }
+[data-rmiz-modal-overlay='visible'] { background-color: var(--color-page); }
+[data-rmiz-modal-overlay='hidden'] { background-color: transparent; }

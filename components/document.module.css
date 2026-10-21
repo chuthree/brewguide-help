@@ -6,6 +6,6 @@
   overflow: hidden;
   border: 0;
   border-radius: var(--media-frame-radius);
-  background: #fff;
+  background: var(--color-surface);
   box-shadow: var(--shadow-note-card);
 }

@@ -230,7 +230,7 @@ export default function BeforeAfterCompare({
                                         onLostPointerCapture={() =>
                                             setDraggingPointerId(null)
                                         }
-                                        className="absolute inset-y-0 z-20 w-8 -translate-x-1/2 cursor-ew-resize touch-none focus-visible:ring-2 focus-visible:ring-black/35 focus-visible:outline-none"
+                                        className="absolute inset-y-0 z-20 w-8 -translate-x-1/2 cursor-ew-resize touch-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus)] focus-visible:outline-none"
                                         style={{ left: sliderLeft }}
                                         animate={
                                             isDragging && !reduceMotion
@@ -296,12 +296,12 @@ export default function BeforeAfterCompare({
                                 </div>
 
                                 {beforeLabel ? (
-                                    <div className="pointer-events-none absolute top-3 left-3 z-30 rounded-full border border-black/8 bg-white/92 px-2 py-0.5 text-[11px] text-neutral-700 shadow-sm">
+                                    <div className="pointer-events-none absolute top-3 left-3 z-30 rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-2 py-0.5 text-[11px] text-[var(--color-text-code)] shadow-sm">
                                         {beforeLabel}
                                     </div>
                                 ) : null}
                                 {afterLabel ? (
-                                    <div className="pointer-events-none absolute top-3 right-3 z-30 rounded-full border border-black/8 bg-white/92 px-2 py-0.5 text-[11px] text-neutral-700 shadow-sm">
+                                    <div className="pointer-events-none absolute top-3 right-3 z-30 rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-2 py-0.5 text-[11px] text-[var(--color-text-code)] shadow-sm">
                                         {afterLabel}
                                     </div>
                                 ) : null}

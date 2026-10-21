@@ -136,10 +136,10 @@ export default function InlineImagePreviewTag({
                                       pointerEvents: 'none',
                                   }),
                         }}
-                        className="fixed z-50 w-40 rounded-xl bg-white p-1 shadow-[0_0_0_1px_rgb(0_0_0/0.06),0_1px_2px_-1px_rgb(0_0_0/0.06),0_2px_4px_0_rgb(0_0_0/0.04)]"
+                        className="fixed z-50 w-40 rounded-xl bg-[var(--color-surface)] p-1 shadow-note-card"
                         {...getFloatingProps()}
                     >
-                        <div className="overflow-hidden rounded-lg shadow-[0_0_0_1px_rgb(0_0_0/0.06),0_1px_2px_-1px_rgb(0_0_0/0.06),0_2px_4px_0_rgb(0_0_0/0.04)]">
+                        <div className="overflow-hidden rounded-lg shadow-note-card">
                             <ImageZoom
                                 src={imageSrc}
                                 alt={imageAlt}
