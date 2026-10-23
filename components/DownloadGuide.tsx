@@ -36,7 +36,8 @@ export default function DownloadGuide({ mode = 'install' }: { mode?: 'install' |
   const device = devices.find((item) => item.id === selected);
   const downloads = selected ? currentDownloads[selected] : [];
   const commandMethod = selected ? (isUpdate ? commandUpdateMethods : commandInstallMethods)[selected] : undefined;
-  const backLabel = page === 2 ? (isUpdate ? '返回更新方式' : '返回安装方式') : '重新选择设备';
+  const skipsMethodSelection = selected === 'linux' || (isUpdate && selected === 'android');
+  const backLabel = page === 2 && !skipsMethodSelection ? (isUpdate ? '返回更新方式' : '返回安装方式') : '重新选择设备';
 
   useLayoutEffect(() => {
     const content = pageRefs.current[page];
@@ -55,8 +56,9 @@ export default function DownloadGuide({ mode = 'install' }: { mode?: 'install' |
   }, [page]);
 
   function goBack() {
-    returnFocus.current = page === 2 ? methodTrigger.current : deviceTrigger.current;
-    setPage(page === 2 ? 1 : 0);
+    const returnsToMethods = page === 2 && !skipsMethodSelection;
+    returnFocus.current = returnsToMethods ? methodTrigger.current : deviceTrigger.current;
+    setPage(returnsToMethods ? 1 : 0);
   }
 
   function methodButton(item: InstallMethod, label: string) {
@@ -116,7 +118,17 @@ export default function DownloadGuide({ mode = 'install' }: { mode?: 'install' |
                     key={id}
                     type="button"
                     className={styles.device}
-                    onClick={(event) => { deviceTrigger.current = event.currentTarget; setSelected(id); setMethod(null); setPage(1); }}
+                    onClick={(event) => {
+                      deviceTrigger.current = event.currentTarget;
+                      setSelected(id);
+                      if (id === 'linux' || (isUpdate && id === 'android')) {
+                        setMethod((isUpdate ? getDownloadUpdateMethod : getDownloadInstallMethod)(id, currentDownloads[id][0]));
+                        setPage(2);
+                      } else {
+                        setMethod(null);
+                        setPage(1);
+                      }
+                    }}
                   >
                     <Icon size={18} aria-hidden="true" />
                     <span>{label}</span>
@@ -145,14 +157,19 @@ export default function DownloadGuide({ mode = 'install' }: { mode?: 'install' |
               </>
             ) : method && (
               <div className={styles.methodView} key={method.id}>
-                <ol className={styles.steps} aria-label="操作步骤">
+                {method.steps.length === 1 ? (
+                  <div className={styles.singleStep}>
+                    <p>{method.steps[0].text}</p>
+                    {method.steps[0].command && <DocCodeBlock wrap copyable={false}><code>{method.steps[0].command}</code></DocCodeBlock>}
+                  </div>
+                ) : <ol className={styles.steps} aria-label="操作步骤">
                   {method.steps.map((step) => (
                     <li key={step.text}>
                       <p>{step.text}</p>
                       {step.command && <DocCodeBlock wrap copyable={false}><code>{step.command}</code></DocCodeBlock>}
                     </li>
                   ))}
-                </ol>
+                </ol>}
                 {method.actions.length > 0 && <div className={styles.operations}>
                   {method.actions.map((action) => action.kind === 'copy' ? (
                     <CopyCommandButton key={action.value} label={action.label} command={action.value} />

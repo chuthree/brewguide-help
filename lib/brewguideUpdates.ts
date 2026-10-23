@@ -80,9 +80,11 @@ export function getDownloadUpdateMethod(device: DownloadDeviceId, download: { la
   return {
     id: download.url,
     title: device === 'android' ? '使用 Android APK 更新' : '使用 Windows EXE 更新',
-    steps: [
-      { text: device === 'android' ? '下载新版 APK 安装包。' : '退出 Brew Guide，下载新版 EXE 安装包。' },
-      { text: device === 'android' ? '打开 APK，按提示更新已有应用，无需先卸载。' : '打开 EXE，按安装程序提示完成更新，无需先卸载。' },
+    steps: device === 'android' ? [
+      { text: '下载新版 APK，打开后覆盖安装即可，无需先卸载。' },
+    ] : [
+      { text: '退出 Brew Guide，下载新版 EXE 安装包。' },
+      { text: '打开 EXE，按安装程序提示完成更新，无需先卸载。' },
       { text: '更新完成后，打开 Brew Guide。' },
     ],
     actions,

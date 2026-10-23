@@ -52,6 +52,8 @@
 }
 .guide .steps > li + li { margin-top: var(--guide-copy-gap); }
 .steps p { margin: 0; }
+.singleStep { padding-inline: 12px; }
+.guide .singleStep p { margin: 0; }
 .operations { display: grid; flex-shrink: 0; gap: var(--guide-row-gap); }
 
 .guide .device,
