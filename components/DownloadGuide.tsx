@@ -4,6 +4,7 @@ import { useEffect, useId, useLayoutEffect, useRef, useState } from 'react';
 import InterfaceIcon, { AnimatedIcon } from './InterfaceIcon';
 import { FaAndroid, FaApple, FaAppStoreIos, FaLinux, FaWindows } from 'react-icons/fa6';
 import { currentDownloads, commandInstallMethods, getDownloadInstallMethod, webInstallMethod, type DownloadDeviceId, type InstallMethod } from '@/lib/brewguideDownloads';
+import { commandUpdateMethods, getDownloadUpdateMethod, updateDescriptions, webUpdateMethod } from '@/lib/brewguideUpdates';
 import DocCodeBlock from './DocCodeBlock';
 import { copyText } from '@/lib/clipboard';
 import styles from './DownloadGuide.module.css';
@@ -21,7 +22,8 @@ const devices = [
 type Page = 0 | 1 | 2;
 const pages: Page[] = [0, 1, 2];
 
-export default function DownloadGuide() {
+export default function DownloadGuide({ mode = 'install' }: { mode?: 'install' | 'update' }) {
+  const isUpdate = mode === 'update';
   const [page, setPage] = useState<Page>(0);
   const [selected, setSelected] = useState<DownloadDeviceId | null>(null);
   const [method, setMethod] = useState<InstallMethod | null>(null);
@@ -33,7 +35,8 @@ export default function DownloadGuide() {
   const returnFocus = useRef<HTMLButtonElement | null>(null);
   const device = devices.find((item) => item.id === selected);
   const downloads = selected ? currentDownloads[selected] : [];
-  const commandMethod = selected ? commandInstallMethods[selected] : undefined;
+  const commandMethod = selected ? (isUpdate ? commandUpdateMethods : commandInstallMethods)[selected] : undefined;
+  const backLabel = page === 2 ? (isUpdate ? '返回更新方式' : '返回安装方式') : '重新选择设备';
 
   useLayoutEffect(() => {
     const content = pageRefs.current[page];
@@ -85,8 +88,8 @@ export default function DownloadGuide() {
         aria-hidden={page === 0 || undefined}
         tabIndex={page === 0 ? -1 : 0}
         onClick={goBack}
-        aria-label={page === 2 ? '返回安装方式' : '重新选择设备'}
-        title={page === 2 ? '返回安装方式' : '重新选择设备'}
+        aria-label={backLabel}
+        title={backLabel}
       >
         <InterfaceIcon name="left" width={18} aria-hidden="true" />
       </button>
@@ -123,13 +126,13 @@ export default function DownloadGuide() {
               </div>
             ) : screen === 1 ? device && (
               <>
-                <p className={styles.description}>{device.description}</p>
+                <p className={styles.description}>{isUpdate ? updateDescriptions[device.id] : device.description}</p>
                 <div className={styles.content}>
                   <div className={styles.options}>
                     {commandMethod && methodButton(commandMethod, commandMethod.title)}
-                    {selected === 'ios' && methodButton(webInstallMethod, 'Web App')}
+                    {selected === 'ios' && methodButton(isUpdate ? webUpdateMethod : webInstallMethod, 'Web App')}
                     {downloads.map((download) => {
-                      const installMethod = getDownloadInstallMethod(device.id, download);
+                      const installMethod = (isUpdate ? getDownloadUpdateMethod : getDownloadInstallMethod)(device.id, download);
                       return installMethod ? methodButton(installMethod, download.label) : (
                         <a key={download.url} href={download.url} className={styles.device}>
                           <span>{download.label}</span>
@@ -150,7 +153,7 @@ export default function DownloadGuide() {
                     </li>
                   ))}
                 </ol>
-                <div className={styles.operations}>
+                {method.actions.length > 0 && <div className={styles.operations}>
                   {method.actions.map((action) => action.kind === 'copy' ? (
                     <CopyCommandButton key={action.value} label={action.label} command={action.value} />
                   ) : (
@@ -159,7 +162,7 @@ export default function DownloadGuide() {
                       {action.value === 'https://coffee.chu3.top/' ? <InterfaceIcon name="external" width={16} aria-hidden="true" /> : <InterfaceIcon name="download" width={16} aria-hidden="true" />}
                     </a>
                   ))}
-                </div>
+                </div>}
               </div>
             )}
           </div>
