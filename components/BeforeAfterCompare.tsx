@@ -180,7 +180,7 @@ export default function BeforeAfterCompare({
                     <m.div className={`relative mx-auto ${styles.mediaFrame}`}>
                     <div className="relative aspect-3/2 w-full">
                         <div className="absolute inset-0 flex items-center justify-center p-3">
-                            <div className="relative aspect-1419/2796 h-full max-h-full bg-white select-none">
+                            <div className="relative aspect-1419/2796 h-full max-h-full select-none">
                                 <div
                                     className="absolute inset-0 z-0"
                                     style={{ clipPath: AFTER_CLIP_PATH }}
