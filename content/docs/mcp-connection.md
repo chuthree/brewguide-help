@@ -1,11 +1,11 @@
 ---
-title: MCP 连接
+title: MCP
 module: AI
 ---
 
 ![AI 根据咖啡豆库存回答问题的对话示例](/brewguide-help/mcp-connection/conversation.webp)
 
-通过 MCP 连接，可以让 Codex、WorkBuddy、Hermes 等工具查看和管理 Brew Guide 中的数据。
+通过 MCP 连接，可以让 Codex、WorkBuddy 或 Hermes 等工具查看和管理 Brew Guide 中的数据。
 
 ---
 
@@ -17,7 +17,7 @@ module: AI
 
 ![MCP 数据范围和权限选择](/brewguide-help/mcp-connection/permissions.webp)
 
-返回后，点击 `连接配置` - `复制配置`。配置包含密钥，请只交给信任的工具；查询内容会交给连接的模型服务处理。
+返回后，点击 `连接配置` - `复制配置`。配置包含密钥，请只交给信任的工具。
 
 ---
 
@@ -32,3 +32,6 @@ module: AI
 - “帮我记录这次冲煮”
 - “这支咖啡豆适合什么研磨度？”
 - “这支咖啡豆怎么冲合适？”
+
+---
+建议搭配 [Supabase 云同步](/realtime-cloud-sync/) 使用，体验更佳。
