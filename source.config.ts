@@ -8,7 +8,7 @@ export const docs = defineDocs({
   docs: {
     schema: pageSchema.extend({
       status: z.enum(['published', 'draft']).default('published'),
-      module: z.enum(['入门', '冲煮', '咖啡豆', '笔记', '数据与备份']).optional(),
+      module: z.enum(['入门', '冲煮', '咖啡豆', '笔记', 'AI', '数据与备份']).optional(),
     }),
   },
 });

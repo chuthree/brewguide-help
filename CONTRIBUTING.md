@@ -25,7 +25,7 @@ module: 咖啡豆
 ![与操作有关的截图](/brewguide-help/example/step.webp)
 ```
 
-`module` 使用「入门、冲煮、咖啡豆、笔记、数据与备份」之一，不添加日期。图片放在 `public/brewguide-help/<文件名>/` 下，引用时省略 `public`。
+`module` 使用「入门、冲煮、咖啡豆、笔记、AI、数据与备份」之一，不添加日期。图片放在 `public/brewguide-help/<文件名>/` 下，引用时省略 `public`。
 
 完成后，在首页 `content/docs/index.mdx` 和目录 `content/docs/meta.json` 的对应分类中添加入口，再提交修改申请。
 

@@ -142,6 +142,7 @@ body { background: var(--color-page); color: var(--color-text); }
 .home-heading-icon-brewing { color: var(--color-icon-brewing); }
 .home-heading-icon-beans { color: var(--color-icon-beans); }
 .home-heading-icon-notes { color: var(--color-icon-notes); }
+.home-heading-icon-ai { color: var(--color-icon-help); }
 .home-heading-icon-data { color: var(--color-icon-help); }
 .home-heading-icon-contribute { color: var(--color-icon-brewing); }
 .markdown-body .home-navigation { margin-top: 28px; }
