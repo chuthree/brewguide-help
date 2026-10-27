@@ -2,7 +2,7 @@ export type DownloadDeviceId = 'ios' | 'android' | 'macos' | 'windows' | 'linux'
 type Download = { label: string; url: string };
 
 // 与 brew-guide 的 GitHub Release 版本和资源文件名保持一致。
-const version = '1.7.0';
+const version = '1.7.1';
 const asset = (suffix: string) => `https://github.com/chuthree/brew-guide/releases/download/v${version}/BrewGuide_${version}_${suffix}`;
 
 export const currentDownloads: Record<DownloadDeviceId, Download[]> = {
