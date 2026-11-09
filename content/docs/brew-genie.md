@@ -11,29 +11,35 @@ Brew Genie 可以和你聊咖啡，也能结合已有记录，帮你整理咖啡
 
 ---
 
-Brew Guide 注重本地数据管理和用户隐私，因此由你自行选择、配置 AI 服务，决定将对话和相关数据交给哪家模型服务商。建议在[七牛云](https://s.qiniu.com/U3aQjy)领取免费 AI Token，并创建 API Key。
+该项目注重本地数据管理和用户隐私，因此由你自行配置 AI 服务商。建议在[七牛云](https://s.qiniu.com/U3aQjy)领取免费 AI Token，并创建 [API Key](https://portal.qiniu.com/ai-inference/api-key)。
 
 ![Brew Genie 在实验性功能中的 API 配置，示例使用七牛云](/brewguide-help/brew-genie/api-settings.webp)
 
-进入 `设置` - `实验性功能`，开启 `Agent` 下的 `brew genie`。按图选择 `自定义服务` 和 `OpenAI Chat Completions`，填写：
+进入 `设置` - `实验性功能`，开启 `brew genie`，填写：
 
-- 红色 `API URL`：`https://api.qnaigc.com/v1`
-- 橙色 `API Key`：七牛云密钥。
-- 蓝色 `Model`：推荐 `deepseek/deepseek-v4.1-flash-1017`，可选择或手动填写。
+- 🔴 `API URL`：`https://api.qnaigc.com/v1`
+- 🟠 `API Key`：七牛云 [API Key](https://portal.qiniu.com/ai-inference/api-key)。
+- 🔵 `Model`：推荐 `deepseek/deepseek-v4.1-flash-1017`
 
-点击 `测试连接`，显示响应时间即为成功；失败时核对配置和可用额度。
+点击 `测试连接`，显示响应时间即为成功。
+
+---
+
+使用其他平台时，在 `服务商` 中选择对应平台并按文档配置，桌面版也可用 `ChatGPT 账号` 登录。想把对话和相关记录留在本机，可以选择 `Ollama` 运行本地模型。
+
+模型需要支持工具调用。如果要在对话里发照片，模型还需要支持图像输入。
 
 ---
 
-其他平台选择对应的 `服务商` 或 `自定义服务`，按平台文档配置即可；模型需支持工具调用，发照片还需支持图像输入。桌面安装版也可直接使用 `ChatGPT 账号` 登录。消息及所需的照片、记录会发送给模型服务商。
+![手机上滑前后的界面：左图蓝框标出底部操作栏，右图显示展开后的 Brew Genie 对话](/brewguide-help/brew-genie/mobile-chat-panel.webp)
 
----
+在手机上，从底部操作栏向上滑动，即可打开 Brew Genie 对话。
 
 ![咖啡豆库存页面右侧的 Brew Genie 对话面板](/brewguide-help/brew-genie/chat-panel.webp)
 
-手机从底部上滑，电脑点击右侧入口或按 `⌘ + Shift + 空格`（macOS）／`Ctrl + Shift + 空格`（Windows / Linux）打开对话，直接告诉它你想做什么即可。
+在电脑上，点击右侧入口，或按 `⌘ + Shift + 空格`（macOS）／`Ctrl + Shift + 空格`（Windows / Linux）打开对话。
 
-例如：
+打开对话后，直接告诉它你想做什么。例如：
 
 - “根据我的磨豆机和冲煮记录，推荐这支豆的研磨度。”
 - “帮我找出重复或信息不全的咖啡豆，整理一下。”
