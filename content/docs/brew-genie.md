@@ -11,7 +11,7 @@ Brew Genie 可以和你聊咖啡，也能结合已有记录，帮你整理咖啡
 
 ---
 
-建议在[七牛云](https://s.qiniu.com/U3aQjy)领取免费 AI Token，并创建 API Key。
+Brew Guide 注重本地数据管理和用户隐私，因此由你自行选择、配置 AI 服务，决定将对话和相关数据交给哪家模型服务商。建议在[七牛云](https://s.qiniu.com/U3aQjy)领取免费 AI Token，并创建 API Key。
 
 ![Brew Genie 在实验性功能中的 API 配置，示例使用七牛云](/brewguide-help/brew-genie/api-settings.webp)
 
