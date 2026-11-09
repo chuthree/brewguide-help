@@ -3,7 +3,7 @@ title: Brew Genie Agent
 module: AI
 ---
 
-![Brew Genie 封面](/brewguide-help/brew-genie/cover.png)
+![Brew Genie 封面](/brewguide-help/brew-genie/cover.webp)
 
 Brew Genie 可以和你聊咖啡，也能结合已有记录，帮你整理咖啡豆、记录冲煮、调整方案。
 
@@ -13,7 +13,7 @@ Brew Genie 可以和你聊咖啡，也能结合已有记录，帮你整理咖啡
 
 建议在[七牛云](https://s.qiniu.com/U3aQjy)领取免费 AI Token，并创建 API Key。
 
-![Brew Genie 在实验性功能中的 API 配置，示例使用七牛云](/brewguide-help/brew-genie/api-settings.png)
+![Brew Genie 在实验性功能中的 API 配置，示例使用七牛云](/brewguide-help/brew-genie/api-settings.webp)
 
 进入 `设置` - `实验性功能`，开启 `Agent` 下的 `brew genie`。按图选择 `自定义服务` 和 `OpenAI Chat Completions`，填写：
 
@@ -29,7 +29,7 @@ Brew Genie 可以和你聊咖啡，也能结合已有记录，帮你整理咖啡
 
 ---
 
-![咖啡豆库存页面右侧的 Brew Genie 对话面板](/brewguide-help/brew-genie/chat-panel.png)
+![咖啡豆库存页面右侧的 Brew Genie 对话面板](/brewguide-help/brew-genie/chat-panel.webp)
 
 手机从底部上滑，电脑点击右侧入口或按 `⌘ + Shift + 空格`（macOS）／`Ctrl + Shift + 空格`（Windows / Linux）打开对话，直接告诉它你想做什么即可。
 
@@ -41,7 +41,7 @@ Brew Genie 可以和你聊咖啡，也能结合已有记录，帮你整理咖啡
 
 ---
 
-![Brew Genie 审批模式菜单：请求批准、帮我批准和完全访问](/brewguide-help/brew-genie/approval-modes.png)
+![Brew Genie 审批模式菜单：请求批准、帮我批准和完全访问](/brewguide-help/brew-genie/approval-modes.webp)
 
 点击 `+`，再点击 `请求批准`，即可切换模式：
 
