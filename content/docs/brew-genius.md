@@ -7,7 +7,7 @@ module: AI
 
 brew genius 可以和你聊咖啡，也能结合已有记录，帮你整理咖啡豆、记录冲煮、调整方案。
 
-该功能从 `1.8.0-beta.1` 开始提供。找不到入口时，请先安装[预发布版本](https://github.com/chuthree/brew-guide/releases/tag/v1.8.0-beta.1)。
+该功能从 `1.8.0-beta.1` 开始提供。找不到入口时，请先安装[预发布版本](https://github.com/chuthree/brew-guide/releases#release-v1.8.0-beta.2)。
 
 ---
 
