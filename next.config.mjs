@@ -7,4 +7,5 @@ export default withMDX({
   trailingSlash: true,
   images: { unoptimized: true },
   agentRules: false,
+  experimental: { agentUpgrade: 'security' },
 });
