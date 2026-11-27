@@ -9,8 +9,8 @@ export const currentDownloads: Record<DownloadDeviceId, Download[]> = {
   ios: [{ label: 'iOS IPA', url: asset('ios.ipa') }],
   android: [{ label: 'Android APK', url: asset('android.apk') }],
   macos: [
-    { label: 'Mac (Apple Silicon) DMG', url: asset('macos_arm64.dmg') },
-    { label: 'Mac (Intel) DMG', url: asset('macos_x64.dmg') },
+    { label: 'Mac (Apple Silicon / M 芯片) DMG', url: asset('macos_arm64.dmg') },
+    { label: 'Mac (Intel 芯片) DMG', url: asset('macos_x64.dmg') },
   ],
   windows: [{ label: 'Windows (x64) EXE', url: asset('windows_x64.exe') }],
   linux: [{ label: 'Linux AppImage (x64)', url: asset('linux_x64.AppImage') }],
@@ -26,7 +26,7 @@ export type InstallMethod = {
 
 const macQuarantineCommand = 'xattr -cr /Applications/Brew\\ Guide.app';
 const macQuarantineStep = {
-  text: '应用未经 Apple 公证，如首次打开提示无法验证，请在终端执行：',
+  text: '应用未经 Apple 公证。如首次打开提示「无法验证开发者」或「已损坏」，打开 Mac 的「终端」粘贴并运行：',
   command: macQuarantineCommand,
 };
 const macQuarantineAction: InstallAction = { kind: 'copy', label: '复制命令', value: macQuarantineCommand };
@@ -38,7 +38,7 @@ export const commandInstallMethods: Partial<Record<DownloadDeviceId, InstallMeth
     id: 'homebrew',
     title: '使用 Homebrew 安装',
     steps: [
-      { text: '如果已安装 Homebrew，在终端执行：', command: homebrewCommand },
+      { text: '如果已安装 Homebrew，打开「终端」执行：', command: homebrewCommand },
       { text: '完成后，从「应用程序」打开 Brew Guide。' },
     ],
     actions: [
@@ -49,7 +49,7 @@ export const commandInstallMethods: Partial<Record<DownloadDeviceId, InstallMeth
     id: 'winget',
     title: '使用 WinGet 安装',
     steps: [
-      { text: '打开终端，执行以下命令：', command: wingetCommand },
+      { text: '如果使用 WinGet，打开「终端」执行以下命令：', command: wingetCommand },
       { text: '等待安装完成后，打开 Brew Guide。' },
     ],
     actions: [{ kind: 'copy', label: '复制安装命令', value: wingetCommand }],
@@ -58,10 +58,10 @@ export const commandInstallMethods: Partial<Record<DownloadDeviceId, InstallMeth
 
 export const webInstallMethod: InstallMethod = {
   id: 'web',
-  title: '使用 Web App',
+  title: '使用 Web App（网页版）',
   steps: [
     { text: '使用 Safari 打开 Brew Guide 网页版。' },
-    { text: '点击「分享」-「添加到主屏幕」，之后就能从桌面打开。' },
+    { text: '点击「分享」-「添加到主屏幕」，之后就能像普通应用一样从桌面打开。' },
   ],
   actions: [{ kind: 'link', label: '打开 Web App', value: 'https://coffee.chu3.top/' }],
 };

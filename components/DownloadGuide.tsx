@@ -12,11 +12,11 @@ import documentStyles from './document.module.css';
 import '@/transitions/download-guide.css';
 
 const devices = [
-  { id: 'ios', label: 'iPhone 或 iPad', title: 'iOS', description: '优先使用 Web App，或使用 IPA 自行签名安装。', Icon: FaAppStoreIos },
-  { id: 'android', label: 'Android', title: 'Android', description: '使用 APK 安装包，下载后打开安装。', Icon: FaAndroid },
-  { id: 'macos', label: 'macOS', title: 'macOS', description: '优先使用 Homebrew，或使用对应芯片的 DMG 安装包。', Icon: FaApple },
-  { id: 'windows', label: 'Windows', title: 'Windows', description: '优先使用 WinGet，或使用 EXE 安装包。', Icon: FaWindows },
-  { id: 'linux', label: 'Linux', title: 'Linux', description: '使用 AppImage，授予执行权限后运行。', Icon: FaLinux },
+  { id: 'ios', label: 'iPhone 或 iPad', title: 'iOS', description: '推荐直接用网页版添加到桌面（最省事），或下载 IPA 自行签名安装。', Icon: FaAppStoreIos },
+  { id: 'android', label: 'Android', title: 'Android', description: '下载 APK 安装包，打开即可安装。', Icon: FaAndroid },
+  { id: 'macos', label: 'macOS', title: 'macOS', description: '直接下载对应芯片的 DMG 安装包，或通过 Homebrew 安装。', Icon: FaApple },
+  { id: 'windows', label: 'Windows', title: 'Windows', description: '直接下载 EXE 安装包，或通过 WinGet 安装。', Icon: FaWindows },
+  { id: 'linux', label: 'Linux', title: 'Linux', description: '下载 AppImage，授予执行权限后运行。', Icon: FaLinux },
 ] as const;
 
 type Page = 0 | 1 | 2;

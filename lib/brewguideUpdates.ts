@@ -1,10 +1,10 @@
 import { getDownloadInstallMethod, type DownloadDeviceId, type InstallMethod } from './brewguideDownloads';
 
 export const updateDescriptions: Record<DownloadDeviceId, string> = {
-  ios: 'Web App 通常会自动更新；如果使用 IPA 安装，请下载新版并使用原来的签名方式安装。',
-  android: '下载新版 APK，覆盖安装。',
-  macos: '通过 Homebrew 更新，或下载对应芯片的新版 DMG 安装包。',
-  windows: '通过 WinGet 更新，或下载新版 EXE 安装包。',
+  ios: 'Web App（网页版）通常会自动更新；如果使用 IPA 安装，请下载新版并用原来的签名方式覆盖安装。',
+  android: '下载新版 APK，直接覆盖安装即可，无需先卸载。',
+  macos: '下载对应芯片的新版 DMG 替换安装，或通过 Homebrew 更新。',
+  windows: '下载新版 EXE 直接覆盖安装，或通过 WinGet 更新。',
   linux: '下载新版 AppImage，授予执行权限后运行。',
 };
 
@@ -34,10 +34,10 @@ export const commandUpdateMethods: Partial<Record<DownloadDeviceId, InstallMetho
 
 export const webUpdateMethod: InstallMethod = {
   id: 'web-update',
-  title: '更新 Web App',
+  title: '更新 Web App（网页版）',
   steps: [
-    { text: 'Web App 通常无需手动更新，关闭后重新打开主屏幕上的 Brew Guide 即可。' },
-    { text: '如果应用内出现更新弹窗，点击「更新」即可。' },
+    { text: 'Web App（网页版）通常会自动更新，彻底关闭后重新从主屏幕打开即可。' },
+    { text: '如果应用内出现更新提示，点击「更新」即可。' },
   ],
   actions: [],
 };
