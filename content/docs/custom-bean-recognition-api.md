@@ -20,8 +20,8 @@ module: 咖啡豆
 `Model` 建议填写：
 
 - 七牛云：`doubao-seed-2.0-mini`
-- 阿里云：`qwen3-vl-flash`
-- OpenAI：`gpt-5-nano-2025-08-07`
+- 阿里云：`qwen3.8-flash`
+- OpenAI：`gpt-5.4-nano`
 
 如使用其他模型，需确认支持 `图像理解` 或 `图像输入`。
 
